@@ -39,6 +39,12 @@ public class Hero extends Mover {
         }
     }
 
+    public int acqX() {
+        return this.getX();
+    }
+    public String getCoords() {
+        return "X: " + this.getX() + " Y: "+ this.getY();
+    }
     public void handleInput() {
         if (Greenfoot.isKeyDown("space")) { 
             velocityY = -10;
