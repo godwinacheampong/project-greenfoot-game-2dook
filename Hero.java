@@ -11,7 +11,7 @@ public class Hero extends Mover {
     private final double acc;
     private final double drag;
     private boolean inAir;
-
+    private int ster;
     public Hero() {
         super();
         gravity = 8;
@@ -68,7 +68,14 @@ public class Hero extends Mover {
             velocityX = 2;
         }
     }
-
+    public int star() {
+        if(isTouching(Ster.class)) {
+            removeTouching(Ster.class);
+            ster++;
+        }
+        
+     return ster;   
+    }
     public int getWidth() {
         return getImage().getWidth();
     }
