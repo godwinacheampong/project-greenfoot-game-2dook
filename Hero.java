@@ -14,7 +14,7 @@ public class Hero extends Mover {
 
     public Hero() {
         super();
-        gravity = 9.8;
+        gravity = 8;
         acc = 0.6;
         drag = 0.8;
         setImage("p1.png");
@@ -49,8 +49,8 @@ public class Hero extends Mover {
     }
 
     public void handleInput() {
-        if (Greenfoot.isKeyDown("space")) {
-            for (Tile tile : getIntersectingObjects(Tile.class)) {
+        if (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("up") ) {
+            for (Tile tile : getIntersectingObjects(Tile.class)) { // Normaal springen
                 if (tile != null) {
                     inAir = false;
                     velocityY = -15;
@@ -59,9 +59,12 @@ public class Hero extends Mover {
                 }
             }
         }
-        if (Greenfoot.isKeyDown("a")) {
+        if (Greenfoot.isKeyDown("k")) {
+            velocityY = -10;
+        }
+        if (Greenfoot.isKeyDown("left")) {
             velocityX = -2;
-        } else if (Greenfoot.isKeyDown("d")) {
+        } else if (Greenfoot.isKeyDown("right")) {
             velocityX = 2;
         }
     }
