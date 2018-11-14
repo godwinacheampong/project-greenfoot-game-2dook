@@ -49,7 +49,7 @@ public class Hero extends Mover {
     }
 
     public void handleInput() {
-        if (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("up") ) {
+        if (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("up")) {
             for (Tile tile : getIntersectingObjects(Tile.class)) { // Normaal springen
                 if (tile != null) {
                     inAir = false;
@@ -59,12 +59,12 @@ public class Hero extends Mover {
                 }
             }
         }
-        if (Greenfoot.isKeyDown("k")) {
+        if (Greenfoot.isKeyDown("k")) { // Vliegen
             velocityY = -10;
         }
-        if (Greenfoot.isKeyDown("left")) {
+        if (Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) {
             velocityX = -2;
-        } else if (Greenfoot.isKeyDown("right")) {
+        } else if (Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) {
             velocityX = 2;
         }
     }
