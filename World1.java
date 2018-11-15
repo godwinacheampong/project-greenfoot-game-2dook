@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  *
  * @author R. Springer
  */
-public class MyWorld extends World {
+public class World1 extends World {
 
     private CollisionEngine ce;
     
@@ -13,7 +13,7 @@ public class MyWorld extends World {
      * Constructor for objects of class MyWorld.
      *
      */
-    public MyWorld() {
+    public World1() {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 800, 1, false);
         this.setBackground("bg.png");
@@ -86,7 +86,7 @@ public class MyWorld extends World {
         Camera camera = new Camera(te);
         // Declareren en initialiseren van een main karakter van het spel mijne heet Hero. Deze klasse 
         // moet de klasse Mover extenden voor de camera om te werken
-        Hero hero = new Hero();
+        Hero hero = new Hero("Ẅorld1");
         ResetButton rb = new ResetButton();
         // Laat de camera een object volgen. Die moet een Mover instatie zijn of een extentie hiervan.
         camera.follow(hero);
@@ -94,8 +94,9 @@ public class MyWorld extends World {
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
         addObject(camera, 0, 0);
         addObject(hero, 251, 2293);
+        addObject(new Ster(), 390, 2293); 
         addObject(new ResetButton(), 45,40);
-        // addObject(new Enemy(), 1170, 410);
+         addObject(new Enemy(), 1170, 410);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
         // De collision engine kijkt alleen naar de tiles die de variabele solid op true hebben staan.
         ce = new CollisionEngine(te, camera);

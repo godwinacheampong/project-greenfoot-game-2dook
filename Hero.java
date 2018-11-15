@@ -10,20 +10,24 @@ public class Hero extends Mover {
     private final double gravity;
     private final double acc;
     private final double drag;
+    public String worldName;
     private boolean inAir;
     private int ster;
-    public Hero() {
+
+    public Hero(String worldName) {
         super();
         gravity = 8;
         acc = 0.6;
         drag = 0.8;
         setImage("p1.png");
+        this.worldName = worldName;
     }
 
     @Override
     public void act() {
+        // setImage("v");
         handleInput();
-
+        ster();
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
@@ -33,8 +37,9 @@ public class Hero extends Mover {
 
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
-                // getWorld().removeObject(this);
-                setLocation(300, 200);
+                getWorld().removeObject(this);
+                getWorld().addObject(new GameOver(), 20, 20);
+                // setLocation(300, 200);
                 break;
             }
         }
@@ -68,14 +73,15 @@ public class Hero extends Mover {
             velocityX = 2;
         }
     }
-    public int star() {
-        if(isTouching(Ster.class)) {
+
+    public int ster() {
+        if (isTouching(Ster.class)) {
             removeTouching(Ster.class);
             ster++;
         }
-        
-     return ster;   
+        return ster;
     }
+
     public int getWidth() {
         return getImage().getWidth();
     }
