@@ -12,6 +12,10 @@ public class Hero extends Mover {
     private final double drag;
     public String worldName;
     private boolean inAir;
+    private boolean hasRedKey;
+    private boolean hasBlueKey;
+    private boolean hasGreenKey;
+    private boolean hasYellowKey;
     private int ster;
 
     public Hero(String worldName) {
