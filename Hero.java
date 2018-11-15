@@ -39,6 +39,7 @@ public class Hero extends Mover {
             if (enemy != null) {
                 // getWorld().removeObject(this);
                 getWorld().addObject(new GameOver(), 500, 20);
+                getWorld().removeObject(this);
                 // setLocation(300, 200);
                 break;
             }
