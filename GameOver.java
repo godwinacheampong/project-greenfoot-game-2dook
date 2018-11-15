@@ -15,5 +15,14 @@ public class GameOver extends Actor {
      */
     public GameOver() {
         setImage(new GreenfootImage("Game Over. Druk op F om het level te resetten.", 48, Color.WHITE, Color.BLACK));
+        //getWorld().removeObjects(getWorld().getObjects(Hero.class));
+
+    }
+
+    public void act() {
+        if (Greenfoot.isKeyDown("f")) {
+
+            //   setWorld(new getWorld().
+        }
     }
 }
