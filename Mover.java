@@ -42,6 +42,10 @@ public class Mover extends Actor {
         Greenfoot.setWorld(new World1());   
     }
 
+    public void dood() {
+        getWorld().addObject(new GameOver(), 500, 200);
+    }
+
     /**
      * Apply change in position based on velocityX and velocityY
      */

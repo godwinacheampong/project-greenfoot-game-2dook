@@ -63,7 +63,7 @@ public class Hero extends Mover {
             for (Tile tile : getIntersectingObjects(Tile.class)) { // Normaal springen
                 if (tile != null) {
                     inAir = false;
-                    velocityY = -15;
+                    velocityY = -20;
                 } else {
                     inAir = true;
                 }
