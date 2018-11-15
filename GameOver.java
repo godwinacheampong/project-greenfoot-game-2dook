@@ -21,8 +21,7 @@ public class GameOver extends Actor {
 
     public void act() {
         if (Greenfoot.isKeyDown("f")) {
-
-            //   setWorld(new getWorld().
+            Greenfoot.setWorld(new World1());
         }
     }
 }

@@ -38,6 +38,10 @@ public class Mover extends Actor {
         }
     }
 
+    public void reset() {
+        Greenfoot.setWorld(new World1());   
+    }
+
     /**
      * Apply change in position based on velocityX and velocityY
      */
@@ -94,10 +98,10 @@ public class Mover extends Actor {
     @Override
     public String toString() {
         return "X: " + getX() + "\n"
-                + "Y: " + getY() + "\n"
-                + "screenX: " + getScreenX() + "\n"
-                + "screenY: " + getScreenY() + "\n"
-                + "velocityX: " + velocityX + "\n"
-                + "velocityY: " + velocityY + "\n";
+        + "Y: " + getY() + "\n"
+        + "screenX: " + getScreenX() + "\n"
+        + "screenY: " + getScreenY() + "\n"
+        + "velocityX: " + velocityX + "\n"
+        + "velocityY: " + velocityY + "\n";
     }
 }
