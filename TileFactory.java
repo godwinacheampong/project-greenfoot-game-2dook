@@ -54,7 +54,7 @@ public class TileFactory {
                 tile.isSolid = true;
                 break;
             case 10:
-                tile = new Tile("boxItem.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new randomBlockTile("boxItem.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;
                 break;
             case 11:
