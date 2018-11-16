@@ -12,10 +12,10 @@ public class Hero extends Mover {
     private final double drag;
     public String worldName;
     private boolean inAir;
-    private boolean hasRedKey;
-    private boolean hasBlueKey;
-    private boolean hasGreenKey;
-    private boolean hasYellowKey;
+    public boolean hasRedKey;
+    public boolean hasBlueKey;
+    public boolean hasGreenKey;
+    public boolean hasYellowKey;
     private int ster;
 
     public Hero(String worldName) {
@@ -32,6 +32,8 @@ public class Hero extends Mover {
         // setImage("v");
         handleInput();
         ster();
+        key();
+       // unlockRed();
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
@@ -42,7 +44,7 @@ public class Hero extends Mover {
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 // getWorld().removeObject(this);
-                getWorld().addObject(new GameOver(), 500, (20*10));
+                getWorld().addObject(new GameOver(), 500, (20 * 10));
                 getWorld().removeObject(this);
                 // setLocation(300, 200);
                 break;
@@ -85,6 +87,13 @@ public class Hero extends Mover {
             ster++;
         }
         return ster;
+    }
+
+    public void key() {
+        if (isTouching(Key.class)) {
+            removeTouching(Key.class);
+            hasRedKey = true;
+        }
     }
 
     public int getWidth() {
