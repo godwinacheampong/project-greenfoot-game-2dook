@@ -40,11 +40,11 @@ public class Camera extends Actor {
     }
 
     /**
-     * The contructor of the Camera class Camera class moves the Tiles and Mover
-     * classes around according to the camera position. Uses the tile engine to
-     * retrieve the tiles to move.
+     * The constructor of the Camera class Camera class moves the Tiles and
+     * Mover classes around according to the camera position. Uses the tile
+     * engine to retrieve the tiles to move.
      *
-     * @param tileEngine TileEngine that is used to retrieve te tiles.
+     * @param tileEngine TileEngine that is used to retrieve the tiles.
      * @param speed the speed of the movement of the camera (Free movement)
      */
     public Camera(TileEngine tileEngine, int speed) {
@@ -74,7 +74,7 @@ public class Camera extends Actor {
 
         // Als je in debug modus zit kan je met de "e" toets de camera los koppelen
         // ben besturen met de pijltjes toetsen.
-        if(CollisionEngine.DEBUG) {
+        if (CollisionEngine.DEBUG) {
             currentSwitchCameraDown = Greenfoot.isKeyDown("e");
             if (currentSwitchCameraDown && !prevSwitchCameraDown) {
                 follow = !follow;

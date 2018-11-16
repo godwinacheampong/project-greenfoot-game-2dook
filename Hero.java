@@ -42,7 +42,7 @@ public class Hero extends Mover {
         }
         applyVelocity();
         List<Lock> locks = this.getNeighbours(100, true, Lock.class);
-        System.out.println(locks.size());
+        // System.out.println(locks.size());
         if (this.hasRedKey && !locks.isEmpty()) {
             // locks.get(0).isSolid = false;
             for (int i = 0; i < locks.size(); i++) {
