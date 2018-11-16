@@ -54,7 +54,7 @@ public class TileFactory {
                 tile.isSolid = true;
                 break;
             case 10:
-                tile = new randomBlockTile("boxItem.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new RandomBlockTile("boxItem.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;
                 break;
             case 11:
@@ -394,7 +394,7 @@ public class TileFactory {
                 tile.isSolid = false;
                 break;
             case 95:
-                tile = new waterTop("liquidWaterTop_mid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new WaterTop("liquidWaterTop_mid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = false;
                 break;
             case 96:
@@ -406,7 +406,7 @@ public class TileFactory {
                 tile.isSolid = true;
                 break;
             case 98:
-                tile = new Tile("lock_red.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Lock("lock_red.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;
                 break;
             case 99:

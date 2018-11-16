@@ -15,7 +15,7 @@ public class RandomBlockTile extends Tile {
     /**
      * Constructor for objects of class randomBlockTile
      */
-    public RandomBlockTile(String image, int width, int heigth) {
+    public randomBlockTile(String image, int width, int heigth) {
         super(image, width, heigth);
     }
 

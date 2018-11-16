@@ -1,5 +1,6 @@
 
 import greenfoot.*;
+import java.util.List;
 
 /**
  *
@@ -40,17 +41,25 @@ public class Hero extends Mover {
             velocityY = gravity;
         }
         applyVelocity();
+        List<Lock> locks = this.getNeighbours(100, true, Lock.class);
+        System.out.println(locks.size());
+        if (this.hasRedKey && !locks.isEmpty()) {
+            // locks.get(0).isSolid = false;
+            for (int i = 0; i < locks.size(); i++) {
+                locks.get(i).setLocation(0, 0);
+            }
+        }
 
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 // getWorld().removeObject(this);
-                getWorld().addObject(new GameOver(), 500, (20 * 10));
+                getWorld().addObject(new GameOver(), 500, 200);
                 getWorld().removeObject(this);
                 // setLocation(300, 200);
                 break;
             }
         }
-        for (waterTop wt : getIntersectingObjects(waterTop.class)) {
+        for (WaterTop wt : getIntersectingObjects(WaterTop.class)) {
             if (wt != null) {
                 getWorld().addObject(new GameOver(), 500, 200);
                 getWorld().removeObject(this);
