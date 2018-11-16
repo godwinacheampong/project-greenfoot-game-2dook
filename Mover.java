@@ -98,7 +98,22 @@ public class Mover extends Actor {
     public int getScreenY() {
         return this.screenY;
     }
-
+    
+    public void changeHero(int heroID) {
+        switch (heroID) {
+            case 1:
+            setImage("p1.png");
+            break;
+            case 2:
+            setImage("p2.png");
+            break;
+            case 3:
+            setImage("p3.png");
+            break;
+            default:
+            break;
+    }
+}
     @Override
     public String toString() {
         return "X: " + getX() + "\n"

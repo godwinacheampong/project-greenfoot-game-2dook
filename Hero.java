@@ -99,7 +99,7 @@ public class Hero extends Mover {
     public int getWidth() {
         return getImage().getWidth();
     }
-
+    
     public int getHeight() {
         return getImage().getHeight();
     }
