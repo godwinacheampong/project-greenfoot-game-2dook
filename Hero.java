@@ -50,6 +50,13 @@ public class Hero extends Mover {
                 break;
             }
         }
+        for (waterTop wt : getIntersectingObjects(waterTop.class)) {
+            if (wt != null) {
+                getWorld().addObject(new GameOver(), 500, 200);
+                getWorld().removeObject(this);
+                break;
+            }
+        }
     }
 
     public int acqX() {
