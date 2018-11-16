@@ -33,7 +33,7 @@ public class Hero extends Mover {
         handleInput();
         ster();
         key();
-       // unlockRed();
+        // unlockRed();
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
@@ -106,7 +106,7 @@ public class Hero extends Mover {
     public int getWidth() {
         return getImage().getWidth();
     }
-    
+
     public int getHeight() {
         return getImage().getHeight();
     }
