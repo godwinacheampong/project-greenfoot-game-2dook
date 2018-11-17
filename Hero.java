@@ -46,7 +46,7 @@ public class Hero extends Mover {
         if (this.hasRedKey && !locks.isEmpty()) {
             // locks.get(0).isSolid = false;
             for (int i = 0; i < locks.size(); i++) {
-                locks.get(i).setLocation(0, 0);
+                locks.get(i).setLocation(1000, 1000);
             }
         }
 
