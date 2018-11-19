@@ -23,7 +23,7 @@ public class RandomBlockTile extends Tile {
         if (!keyUsed) {
             for (Actor hero : getIntersectingObjects(Hero.class)) {
                 if (hero != null) {
-                    getWorld().addObject(new Key(), 1350, 2053);
+                    getWorld().addObject(new Key(), 1301, 493);
                     keyUsed = true;
                     break;
                 }
