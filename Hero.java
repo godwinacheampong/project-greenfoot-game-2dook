@@ -66,6 +66,11 @@ public class Hero extends Mover {
                 break;
             }
         }
+        for (door d1 : getIntersectingObjects(door.class)) {
+            if (d1 != null) {
+                System.out.println(d1);
+            }
+        }
     }
 
     public int acqX() {
