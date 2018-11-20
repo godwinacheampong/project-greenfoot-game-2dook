@@ -33,6 +33,7 @@ public class Hero extends Mover {
         // setImage("v");
         handleInput();
         ster();
+        door();
         key();
         // unlockRed();
         velocityX *= drag;
@@ -66,7 +67,11 @@ public class Hero extends Mover {
                 break;
             }
         }
-        for (door d1 : getIntersectingObjects(door.class)) {
+
+    }
+
+    public void door() {
+        for (Door d1 : getIntersectingObjects(Door.class)) {
             if (d1 != null) {
                 System.out.println(d1);
             }
@@ -100,6 +105,10 @@ public class Hero extends Mover {
         } else if (Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) {
             velocityX = 2;
         }
+    }
+
+    public int getSter() {
+        return this.ster;
     }
 
     public int ster() {

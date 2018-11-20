@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class door extends Tile
+public class Door extends Tile
 {
     int worldNum;
-    public door(String image, int width, int height, int worldNum) {
+    public Door(String image, int width, int height, int worldNum) {
         super(image, width, height);
         this.worldNum = worldNum;
     }

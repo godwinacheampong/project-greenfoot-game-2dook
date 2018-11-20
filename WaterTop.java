@@ -17,12 +17,6 @@ public class WaterTop extends Tile
     }
     public void act() 
     {
-        for (Actor hero : getIntersectingObjects(W.class)) {
-            if (wt != null) {
-                getWorld().addObject(new GameOver(), 500, 200);
-                getWorld().removeObject(this);
-                break;
-            }
-        }
+        
     }    
 }
