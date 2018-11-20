@@ -4,8 +4,8 @@ import greenfoot.Actor;
 /**
  * Write a description of class randomBlockTile here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Godwin A.
+ * @version 0.1
  */
 public class RandomBlockTile extends Tile {
 

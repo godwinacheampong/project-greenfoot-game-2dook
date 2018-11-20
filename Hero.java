@@ -88,8 +88,8 @@ public class Hero extends Mover {
 
     public void handleInput() {
         if (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("up")) {
-            for (Tile tile : getIntersectingObjects(Tile.class)) { // Normaal springen
-                if (tile != null) {
+            for (Actor hero : getIntersectingObjects(JumpTile.class)) { // Normaal springen
+                if (hero != null) {
                     inAir = false;
                     velocityY = -20;
                 } else {
