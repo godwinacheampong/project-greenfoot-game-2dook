@@ -7,7 +7,7 @@ import greenfoot.Actor;
  * @author Godwin A.
  * @version 0.1
  */
-public class RandomBlockTile extends Tile {
+public class RandomBlockTile extends JumpableTiles {
 
     // instance variables - replace the example below with your own
     private boolean keyUsed;
@@ -15,8 +15,8 @@ public class RandomBlockTile extends Tile {
     /**
      * Constructor for objects of class randomBlockTile
      */
-    public RandomBlockTile(String image, int width, int heigth) {
-        super(image, width, heigth);
+    public RandomBlockTile(String image, int width, int height) {
+        super(image, width, height);
     }
 
     public void act() {

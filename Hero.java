@@ -16,16 +16,20 @@ public class Hero extends Mover {
     public boolean hasRedKey;
     public boolean hasBlueKey;
     public boolean hasGreenKey;
+    public int frame = 1;
+    public int jumpFrame = 1;
     public boolean hasYellowKey;
+    int charNum;
     private int ster;
 
-    public Hero(String worldName) {
+    public Hero(String worldName, int charNum) {
         super();
         gravity = 8;
         acc = 0.6;
         drag = 0.8;
         setImage("p1.png");
         this.worldName = worldName;
+        this.charNum = charNum;
     }
 
     @Override
@@ -63,11 +67,16 @@ public class Hero extends Mover {
         for (WaterTop wt : getIntersectingObjects(WaterTop.class)) {
             if (wt != null) {
                 getWorld().addObject(new GameOver(), 500, 200);
+
                 getWorld().removeObject(this);
                 break;
             }
         }
 
+    }
+
+    public void hideHero() {
+        getWorld().getObjects(Hero.class).get(0).setImage(new GreenfootImage(1,1));
     }
 
     public void door() {
@@ -87,24 +96,100 @@ public class Hero extends Mover {
     }
 
     public void handleInput() {
-        if (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("up")) {
-            for (Actor hero : getIntersectingObjects(JumpTile.class)) { // Normaal springen
-                if (hero != null) {
-                    inAir = false;
-                    velocityY = -20;
-                } else {
-                    inAir = true;
-                }
+        for (Actor hero : getIntersectingObjects(JumpableTiles.class)) {
+            if (Greenfoot.isKeyDown("space")) {
+                inAir = true;
+                velocityY = -14;
+                setImage("p" + charNum + "_jump.png");
+            } else {
+                inAir = false;
             }
         }
-        if (Greenfoot.isKeyDown("k")) { // Vliegen
-            velocityY = -10;
+        if (Greenfoot.isKeyDown("a")) {
+            velocityX = -4;
+            frames2();
+        } else if (Greenfoot.isKeyDown("d")) {
+            velocityX = 4;
+            frames();
         }
-        if (Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) {
-            velocityX = -2;
-        } else if (Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) {
-            velocityX = 2;
+    }
+
+    public void frames2() {
+        if (frame == 1) {
+            setImage("p" + charNum + "_walk2_01.png");
         }
+        if (frame == 2) {
+            setImage("p" + charNum + "_walk2_02.png");
+        }
+        if (frame == 3) {
+            setImage("p" + charNum + "_walk2_03.png");
+        }
+        if (frame == 4) {
+            setImage("p" + charNum + "_walk2_04.png");
+        }
+        if (frame == 5) {
+            setImage("p" + charNum + "_walk2_05.png");
+        }
+        if (frame == 6) {
+            setImage("p" + charNum + "_walk2_06.png");
+        }
+        if (frame == 7) {
+            setImage("p" + charNum + "_walk2_07.png");
+        }
+        if (frame == 8) {
+            setImage("p" + charNum + "_walk2_08.png");
+        }
+        if (frame == 9) {
+            setImage("p" + charNum + "_walk2_09.png");
+        }
+        if (frame == 10) {
+            setImage("p" + charNum + "_walk2_10.png");
+        }
+        if (frame == 11) {
+            setImage("p" + charNum + "_walk2_11.png");
+            frame = 1;
+            return;
+        }
+        frame++;
+    }
+
+    public void frames() {
+        if (frame == 1) {
+            setImage("p" + charNum + "_walk01.png");
+        }
+        if (frame == 2) {
+            setImage("p" + charNum + "_walk02.png");
+        }
+        if (frame == 3) {
+            setImage("p" + charNum + "_walk03.png");
+        }
+        if (frame == 4) {
+            setImage("p" + charNum + "_walk04.png");
+        }
+        if (frame == 5) {
+            setImage("p" + charNum + "_walk05.png");
+        }
+        if (frame == 6) {
+            setImage("p" + charNum + "_walk06.png");
+        }
+        if (frame == 7) {
+            setImage("p" + charNum + "_walk07.png");
+        }
+        if (frame == 8) {
+            setImage("p" + charNum + "_walk08.png");
+        }
+        if (frame == 9) {
+            setImage("p" + charNum + "_walk09.png");
+        }
+        if (frame == 10) {
+            setImage("p" + charNum + "_walk10.png");
+        }
+        if (frame == 11) {
+            setImage("p" + charNum + "_walk11.png");
+            frame = 1;
+            return;
+        }
+        frame++;
     }
 
     public int getSter() {

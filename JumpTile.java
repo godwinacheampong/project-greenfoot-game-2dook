@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Godwin A. 
  * @version 0.1
  */
-public class JumpTile extends Tile
+public class JumpTile extends JumpableTiles
 {
     public JumpTile(String image,int width,int height) 
     {

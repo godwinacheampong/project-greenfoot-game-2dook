@@ -12,14 +12,14 @@ public class Door extends Tile
     {
         for (Actor hero : getIntersectingObjects(Hero.class)) {
             if (hero != null) {
-                /*  switch(this.worldNum) {
-                case 0:
-                Greenfoot.setWorld(new World2());
-                break;
+                switch(this.worldNum) {
+                    case 0:
+                    Greenfoot.setWorld(new World2());
+                    break;
 
-                }*/
-                // Greenfoot.setWorld(new World1());
-            }
-        }    
+                    // Greenfoot.setWorld(new World1());
+                }
+            }    
+        }
     }
 }
