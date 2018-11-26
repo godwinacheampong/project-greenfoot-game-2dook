@@ -12,13 +12,8 @@ public class World2 extends World {
     public String worldName = "World2";
     int heroSpawnX = 84;
     int heroSpawnY = 687;
-    int[] star1 = {445, 733};
-    int[] star2 = {789, 493};
-    int[] star3 = {1683, 733};
-    int resetX = 40;
-    int resetY = 45;
-    int star2SpawnXPos;
-    int star2SpawnYPos;
+    int resetBtnX = 40;
+    int resetBtnY = 45;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -77,11 +72,8 @@ public class World2 extends World {
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
         addObject(camera, 0, 0);
         addObject(hero, heroSpawnX, heroSpawnY);
-        /*addObject(new Ster(), star1[0], star1[1]);
-        addObject(new Ster(), star2[0], star2[1]);
-        addObject(new Ster(), star3[0], star3[1]);*/
         addObject(new SterCount(), 907, 30);
-        addObject(new ResetButton(), resetX, resetY);
+        addObject(new ResetButton(), resetBtnX, resetBtnY);
 
         //   addObject(new Enemy(), 1170, 410);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.

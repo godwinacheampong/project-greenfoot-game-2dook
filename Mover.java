@@ -19,7 +19,7 @@ public class Mover extends Actor {
     private boolean hasCamera;
 
     /**
-     * Methode to set the camera a Mover can have
+     * Method to set the camera a Mover can have
      *
      * @param camera A Camera class
      */

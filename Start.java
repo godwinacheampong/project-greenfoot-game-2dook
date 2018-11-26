@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class START here.
  *
  * @author G. A
- * @version (a version number or a date)
+ * @version 0.1
  */
 public class Start extends World {
 

@@ -21,6 +21,12 @@ public class Hero extends Mover {
     public boolean hasYellowKey;
     int charNum;
     private int ster;
+    
+    /*
+    ID: 0 -> Groene hero
+    ID: 1 -> Blauwe hero
+    ID: 2 -> Roze hero
+     */
 
     public Hero(String worldName, int charNum) {
         super();

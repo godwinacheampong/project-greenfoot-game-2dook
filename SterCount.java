@@ -20,7 +20,7 @@ public class SterCount extends UI
                 int sterren = getWorld().getObjects(Hero.class).get(0).getSter();
                 getWorld().showText("x " + sterren, 950,33);
             } catch(IndexOutOfBoundsException e) {
-            System.out.println("Exception caught.");
+           return;
 
         }
     }
