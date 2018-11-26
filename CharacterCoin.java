@@ -23,17 +23,17 @@ public class CharacterCoin extends Tile {
     public CharacterCoin(String image, int width, int height,int switchToHeroNum) {
         super(image, width, height);
         switch (switchToHeroNum) {
-            case 0:
+            case 1:
                 this.switchTo = switchToHeroNum;
                 this.setImage("hud_p1.png");
                 break;
 
-            case 1:
+            case 2:
                 this.switchTo = switchToHeroNum;
                 this.setImage("hud_p2.png");
                 break;
 
-            case 2:
+            case 3:
                 this.switchTo = switchToHeroNum;
                 this.setImage("hud_p3.png");
                 break;
@@ -45,5 +45,10 @@ public class CharacterCoin extends Tile {
 
     public void act() {
         // applyVelocity();
+        for (Hero hero : getIntersectingObjects(Hero.class)) {
+                if (hero != null) {
+                    hero.charNum = switchTo;
+                }
+            }
     }
 }
