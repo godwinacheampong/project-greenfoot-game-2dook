@@ -19,36 +19,53 @@ public class CharacterCoin extends Tile {
     ID: 1 -> Blauwe hero
     ID: 2 -> Roze hero
      */
-    
+
     public CharacterCoin(String image, int width, int height,int switchToHeroNum) {
         super(image, width, height);
         switch (switchToHeroNum) {
             case 1:
-                this.switchTo = switchToHeroNum;
-                this.setImage("hud_p1.png");
-                break;
+            this.switchTo = switchToHeroNum;
+            this.setImage("hud_p1.png");
+            break;
 
             case 2:
-                this.switchTo = switchToHeroNum;
-                this.setImage("hud_p2.png");
-                break;
+            this.switchTo = switchToHeroNum;
+            this.setImage("hud_p2.png");
+            break;
 
             case 3:
-                this.switchTo = switchToHeroNum;
-                this.setImage("hud_p3.png");
-                break;
+            this.switchTo = switchToHeroNum;
+            this.setImage("hud_p3.png");
+            break;
 
             default:
-                break;
+            break;
         }
     }
 
     public void act() {
         // applyVelocity();
         for (Hero hero : getIntersectingObjects(Hero.class)) {
-                if (hero != null) {
-                    hero.charNum = switchTo;
+            if (hero != null) {
+                hero.charNum = switchTo;
+                switch(hero.charNum) {
+                    /*
+    ID: 0 -> Groene hero ()
+    ID: 1 -> Blauwe hero ()
+    ID: 2 -> Roze hero   ()
+     */
+                    case 1:
+                    
+                    break;
+                    case 2:
+                    break;
+                    case 3:
+                    break;
+
+                    default:
+                    break;
                 }
             }
+        }
     }
 }

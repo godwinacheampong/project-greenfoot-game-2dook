@@ -211,8 +211,8 @@ public class Hero extends Mover {
     }
 
     public void key() {
-        if (isTouching(Key.class)) {
-            removeTouching(Key.class);
+        if (isTouching(KeySpawnable.class)) {
+            removeTouching(KeySpawnable.class);
             hasRedKey = true;
         }
     }

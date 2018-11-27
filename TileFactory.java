@@ -701,22 +701,34 @@ public class TileFactory {
                 tile = new Tile("window.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;
                 break;
-            case 176:
+            case 173:
+                tile = new Key("keyBlue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "BLUE");
+                tile.isSolid = true;
+                break;
+            case 174:
+                tile = new Key("keyGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "GREEN");
+                tile.isSolid = true;
+                break;
+            case 175:
+                tile = new Key("keyRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "RED");
+                tile.isSolid = true;
+                break;
+
+            case 177:
                 tile = new CharacterCoin("hud_p1.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 1);
                 tile.isSolid = false;
                 break;
-                
-            case 177:
+
+            case 178:
                 tile = new CharacterCoin("hud_p2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 2);
                 tile.isSolid = false;
                 break;
-                
-            case 178:
+
+            case 179:
                 tile = new CharacterCoin("hud_p3.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 3);
                 tile.isSolid = false;
                 break;
-                
-            
+
             default:
                 tile = new Tile("bg.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = false;
