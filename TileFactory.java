@@ -1641,7 +1641,7 @@ public class TileFactory {
 
             case 325:
                 tile = new Ster("star.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 326:
