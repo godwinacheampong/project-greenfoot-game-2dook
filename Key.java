@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 0.1
  */
 public class Key extends Tile {
-    
     String keyColor;
     /**
      * Act - do whatever the Key wants to do. This method is called whenever the

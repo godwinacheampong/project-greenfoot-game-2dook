@@ -128,13 +128,13 @@ public class Hero extends Mover {
             setImage("alien" + charNum + "_jump" + direction + ".png");
         }
     }
-    
+
     public boolean opGrond() {
         Actor onder = getOneObjectAtOffset(0, getImage().getHeight() / 2, Tile.class);
         Tile tile = (Tile) onder;
         return tile != null && tile.isSolid == true;
-    } 
-    
+    }
+
     public void handleInput() {
         animatieStanding();
         animatieJump();
