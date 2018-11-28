@@ -16,24 +16,26 @@ public class Hero extends Mover {
     public boolean hasRedKey;
     public boolean hasBlueKey;
     public boolean hasGreenKey;
-    public int frame = 1;
-    public int jumpFrame = 1;
+
     public boolean hasYellowKey;
     int charNum;
     private int ster;
-    
+
+    public int direction = 2;
+    public int animationTimer = 0;
+    public int PicNum = 1;
+
     /*
     ID: 0 -> Groene hero
     ID: 1 -> Blauwe hero
     ID: 2 -> Roze hero
      */
-
     public Hero(String worldName, int charNum) {
         super();
         gravity = 8;
         acc = 0.6;
         drag = 0.8;
-        setImage("p1.png");
+        // setImage("p" + charNum + "_front.png");
         this.worldName = worldName;
         this.charNum = charNum;
     }
@@ -55,7 +57,6 @@ public class Hero extends Mover {
         List<Lock> locks = this.getNeighbours(100, true, Lock.class);
         // System.out.println(locks.size());
         if (this.hasRedKey && !locks.isEmpty()) {
-            // locks.get(0).isSolid = false;
             for (int i = 0; i < locks.size(); i++) {
                 locks.get(i).setLocation(1000, 1000);
             }
@@ -82,7 +83,7 @@ public class Hero extends Mover {
     }
 
     public void hideHero() {
-        getWorld().getObjects(Hero.class).get(0).setImage(new GreenfootImage(1,1));
+        getWorld().getObjects(Hero.class).get(0).setImage(new GreenfootImage(1, 1));
     }
 
     public void door() {
@@ -101,26 +102,67 @@ public class Hero extends Mover {
         return "X: " + this.getX() + " Y: " + this.getY();
     }
 
-    public void handleInput() {
-        for (Actor hero : getIntersectingObjects(JumpableTiles.class)) {
-            if (Greenfoot.isKeyDown("space")) {
-                inAir = true;
-                velocityY = -14;
-                setImage("p" + charNum + "_jump.png");
-            } else {
-                inAir = false;
-            }
-        }
-        if (Greenfoot.isKeyDown("a")) {
-            velocityX = -4;
-            frames2();
-        } else if (Greenfoot.isKeyDown("d")) {
-            velocityX = 4;
-            frames();
+    public boolean keySpace() {
+        boolean keySpace = Greenfoot.isKeyDown("space");
+        return keySpace;
+    }
+
+    public boolean keyRight() {
+        boolean keyRight = Greenfoot.isKeyDown("right");
+        return keyRight;
+    }
+
+    public boolean keyLeft() {
+        boolean keyLeft = Greenfoot.isKeyDown("left");
+        return keyLeft;
+    }
+
+    public void animatieStanding() {
+        if (keySpace() == false && keyLeft() == false && keyRight() == false && velocityY == 0) {
+            setImage("alien" + charNum + "_stand" + direction + ".png");
         }
     }
 
-    public void frames2() {
+    public void animatieJump() {
+        if (velocityY != 0) {
+            setImage("alien" + charNum + "_jump" + direction + ".png");
+        }
+    }
+    
+    public boolean opGrond() {
+        Actor onder = getOneObjectAtOffset(0, getImage().getHeight() / 2, Tile.class);
+        Tile tile = (Tile) onder;
+        return tile != null && tile.isSolid == true;
+    } 
+    
+    public void handleInput() {
+        animatieStanding();
+        animatieJump();
+        if (keySpace() && opGrond() == true) {
+            velocityY = -14;
+        } else if (Greenfoot.isKeyDown("up") && opGrond() == true) {
+            velocityY = -14;
+        }
+
+        if (keyLeft() && keyRight() == false) {
+            velocityX = -4;
+            direction = 1;
+            if (animationTimer % 10 == 0 && velocityY == 0) {
+                animatie();
+            }
+            animationTimer++;
+
+        } else if (keyRight()) {
+            velocityX = 4;
+            direction = 2;
+            if (animationTimer % 10 == 0 && velocityY == 0) {
+                animatie();
+            }
+            animationTimer++;
+        }
+    }
+
+    /* public void frames2() {
         if (frame == 1) {
             setImage("p" + charNum + "_walk2_01.png");
         }
@@ -157,8 +199,8 @@ public class Hero extends Mover {
             return;
         }
         frame++;
-    }
-
+    } */
+ /*
     public void frames() {
         if (frame == 1) {
             setImage("p" + charNum + "_walk01.png");
@@ -196,18 +238,28 @@ public class Hero extends Mover {
             return;
         }
         frame++;
+    } */
+    public void animatie() {
+
+        if (PicNum == 1) {
+            setImage("alien" + charNum + "_walk" + direction + "1.png");
+        } else if (PicNum == 2) {
+            setImage("alien" + charNum + "_walk" + direction + "2.png");
+            PicNum = 1;
+            return;
+        }
+        PicNum++;
     }
 
     public int getSter() {
         return this.ster;
     }
 
-    public int ster() {
+    public void ster() {
         if (isTouching(Ster.class)) {
             removeTouching(Ster.class);
             ster++;
         }
-        return ster;
     }
 
     public void key() {

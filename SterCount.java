@@ -14,16 +14,18 @@ public class SterCount extends UI
      */
     public void act() 
     {
-        if(getWorld().getObjects(Hero.class) == null) { return; } else {
-        try {
-            
-                int sterren = getWorld().getObjects(Hero.class).get(0).getSter();
-                getWorld().showText("x " + sterren, 950,33);
-            } catch(IndexOutOfBoundsException e) {
-           return;
-
+        if(getWorld().getObjects(Hero.class) != null) {
+            try {
+                if(getWorld().getObjects(Hero.class) != null) {
+                    getWorld().showText("x " + getWorld().getObjects(Hero.class).get(0).getSter(), 950,33);
+                } 
+            }
+            catch(Exception e) {
+                System.out.println(e);
+            }
         }
-    }
-    // getWorld().getObjects(Hero.class).get(0).getSter();
-}    
+        // getWorld().getObjects(Hero.class).get(0).getSter();
+
+    }    
 }
+

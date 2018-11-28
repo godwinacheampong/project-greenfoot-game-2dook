@@ -17,6 +17,14 @@ public class Ster extends Tile
     }
     public void act() 
     {
-        
+        for (Hero hero : getIntersectingObjects(Hero.class)) {
+            if (hero != null) {
+                // getWorld().removeObject(this);
+                // getWorld().addObject(new GameOver(), 500, 200);
+                // getWorld().removeObject(this);
+                // setLocation(300, 200);
+                break;
+            }
+        }
     }    
 }
