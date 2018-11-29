@@ -21,6 +21,7 @@ public class RandomBlockTile extends JumpableTiles {
 
     public void act() {
         if (!keyUsed) {
+            this.type = TileType.RANDOM;
             for (Actor hero : getIntersectingObjects(Hero.class)) {
                 if (hero != null) {
                     getWorld().addObject(new KeySpawnable("RED"), 1292, 493);

@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author R. Springer
  */
 public class World1 extends World {
-
+    public int starsCollected = 0;
     private CollisionEngine ce;
     public String worldName = "World1";
     int heroSpawnX = 84;

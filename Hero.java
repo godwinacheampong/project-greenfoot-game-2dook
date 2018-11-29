@@ -182,7 +182,7 @@ public class Hero extends Mover {
         if(isTouching(Ster.class))
         {
             removeTouching(Ster.class);
-            ster++;
+            getWorld().getObjects(SterCount.class).get(0).starsCollected++;
         }
     }
 
