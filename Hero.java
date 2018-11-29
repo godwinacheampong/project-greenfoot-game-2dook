@@ -7,23 +7,27 @@ import java.util.List;
  * @author R. Springer
  */
 public class Hero extends Mover {
-
+// Stats
     private final double gravity;
     private final double acc;
     private final double drag;
-    public String worldName;
-    private boolean inAir;
-    public boolean hasRedKey;
-    public boolean hasBlueKey;
-    public boolean hasGreenKey;
-
-    public boolean hasYellowKey;
     int charNum;
     private int ster;
-
+// Data
+    public String worldName;
+    private boolean inAir;
     public int direction = 2;
     public int animationTimer = 0;
     public int PicNum = 1;
+// Inventory
+    public boolean hasRedKey;
+    public boolean hasBlueKey;
+    public boolean hasGreenKey;
+    public boolean hasYellowKey;
+    
+    
+
+    
 
     /*
     ID: 0 -> Groene hero

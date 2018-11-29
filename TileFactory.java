@@ -305,23 +305,23 @@ public class TileFactory {
                 break;
 
             case 58:
-                tile = new Tile("door_closedMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Door("door_closedMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
                 tile.isSolid = true;
                 break;
 
             case 59:
-                tile = new Tile("door_closedTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Door("door_closedTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
                 tile.isSolid = true;
                 break;
 
             case 60:
-                tile = new Tile("door_openMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Door("door_openMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
+                tile.isSolid = false;
                 break;
 
             case 61:
-                tile = new Tile("door_openTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Door("door_openTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
+                tile.isSolid = false;
                 break;
 
             case 62:
@@ -1215,23 +1215,23 @@ public class TileFactory {
                 break;
 
             case 240:
-                tile = new Tile("door_closedMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Door("door_closedMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT,0);
+                tile.isSolid = false;
                 break;
 
             case 241:
-                tile = new Tile("door_closedTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Door("door_closedTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
+                tile.isSolid = false;
                 break;
 
             case 242:
-                tile = new Tile("door_openMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Door("door_openMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
+                tile.isSolid = false;
                 break;
 
             case 243:
-                tile = new Tile("door_openTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Door("door_openTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
+                tile.isSolid = false;
                 break;
 
             case 244:
