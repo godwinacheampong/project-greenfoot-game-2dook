@@ -47,7 +47,7 @@ public class Hero extends Mover {
         ster();
         door();
         key();
-        // unlockRed();
+        unlock();
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
@@ -75,12 +75,17 @@ public class Hero extends Mover {
 
     }
 
-    public void checkForLock() {
+    public void unlock() {
         List<Lock> locks = this.getNeighbours(100, true, Lock.class);
-        // System.out.println(locks.size());
-        if (this.hasRedKey && !locks.isEmpty()) {
+        if (!locks.isEmpty()) {
             for (int i = 0; i < locks.size(); i++) {
-                locks.get(i).setLocation(1000, 1000);
+                if(hasRedKey && locks.get(i).kleur == "RED") {
+                    locks.get(i).setLocation(1000, 1000);
+                } else if(hasBlueKey && locks.get(i).kleur == "BLUE") {
+                    locks.get(i).setLocation(1000, 1000);
+                } else {
+                    System.out.println("No key.");
+                }
             }
         }
     }
@@ -142,7 +147,9 @@ public class Hero extends Mover {
         } else if (Greenfoot.isKeyDown("up") && opGrond() == true) {
             velocityY = -14;
         }
-
+        if (Greenfoot.isKeyDown("h")) {
+            velocityY = -14;
+        }
         if (keyLeft() && keyRight() == false) {
             velocityX = -4;
             direction = 1;
@@ -177,19 +184,34 @@ public class Hero extends Mover {
         return this.ster;
     }
 
-    public void ster()
-    {
-        if(isTouching(Ster.class))
-        {
+    public void ster() {
+        if (isTouching(Ster.class)) {
             removeTouching(Ster.class);
             getWorld().getObjects(SterCount.class).get(0).starsCollected++;
         }
     }
 
     public void key() {
-        if (isTouching(KeySpawnable.class)) {
-            removeTouching(KeySpawnable.class);
-            hasRedKey = true;
+        for (KeySpawnable ks : getIntersectingObjects(KeySpawnable.class)) {
+            if (ks != null) {
+                switch (ks.keyColor) {
+                    case "BLUE":
+                        hasBlueKey = true;
+                        removeTouching(KeySpawnable.class);
+                        break;
+                    case "RED":
+                        hasRedKey = true;
+                        removeTouching(KeySpawnable.class);
+                        break;
+                    case "GREEN":
+                        hasGreenKey = true;
+                        removeTouching(KeySpawnable.class);
+                        break;
+
+                    default:
+                        System.out.println("No key color specified in constructor. Check KeySpawnable.java");
+                }
+            }
         }
     }
 

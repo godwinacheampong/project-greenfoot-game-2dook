@@ -1,5 +1,4 @@
 
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Key here.
@@ -25,6 +24,7 @@ public class KeySpawnable extends Mover {
                 break;
 
             default:
+            System.out.println("Error occured");
                 break;
         }
     }

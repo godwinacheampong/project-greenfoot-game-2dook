@@ -65,7 +65,7 @@ public class TileFactory {
                 break;
 
             case 10:
-                tile = new Tile("boxItem.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new RandomBlockTile("boxItem.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;
                 break;
 
@@ -641,22 +641,22 @@ public class TileFactory {
 
             case 125:
                 tile = new Tile("sign.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 126:
                 tile = new Tile("signExit.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 127:
                 tile = new Tile("signLeft.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 128:
                 tile = new Tile("signRight.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 129:
@@ -1531,22 +1531,22 @@ public class TileFactory {
 
             case 303:
                 tile = new Tile("sign.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 304:
                 tile = new Tile("signExit.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 305:
                 tile = new Tile("signLeft.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 306:
                 tile = new Tile("signRight.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 307:
