@@ -54,13 +54,6 @@ public class Hero extends Mover {
             velocityY = gravity;
         }
         applyVelocity();
-        List<Lock> locks = this.getNeighbours(100, true, Lock.class);
-        // System.out.println(locks.size());
-        if (this.hasRedKey && !locks.isEmpty()) {
-            for (int i = 0; i < locks.size(); i++) {
-                locks.get(i).setLocation(1000, 1000);
-            }
-        }
 
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
@@ -82,8 +75,18 @@ public class Hero extends Mover {
 
     }
 
+    public void checkForLock() {
+        List<Lock> locks = this.getNeighbours(100, true, Lock.class);
+        // System.out.println(locks.size());
+        if (this.hasRedKey && !locks.isEmpty()) {
+            for (int i = 0; i < locks.size(); i++) {
+                locks.get(i).setLocation(1000, 1000);
+            }
+        }
+    }
+
     public void hideHero() {
-        getWorld().getObjects(Hero.class).get(0).setImage(new GreenfootImage(1, 1));
+        this.setImage(new GreenfootImage(1, 1));
     }
 
     public void door() {
@@ -92,10 +95,6 @@ public class Hero extends Mover {
                 System.out.println(d1);
             }
         }
-    }
-
-    public int acqX() {
-        return this.getX();
     }
 
     public String getCoords() {
