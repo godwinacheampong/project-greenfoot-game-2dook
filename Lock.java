@@ -8,12 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Lock extends Tile
 {
+    String kleur;
     /**
      * Act - do whatever the lock wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Lock(String image, int width, int height) {
+    public Lock(String image, int width, int height, String kleur) {
         super(image, width, height);
+        this.kleur = kleur;
     }
     public void act() 
     {

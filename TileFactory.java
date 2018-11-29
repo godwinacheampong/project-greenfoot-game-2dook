@@ -495,22 +495,22 @@ public class TileFactory {
                 break;
 
             case 96:
-                tile = new Tile("lock_blue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Lock("lock_blue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "BLUE");
                 tile.isSolid = true;
                 break;
 
             case 97:
-                tile = new Tile("lock_green.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Lock("lock_green.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "GREEN");
                 tile.isSolid = true;
                 break;
 
             case 98:
-                tile = new Tile("lock_red.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Lock("lock_red.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "RED");
                 tile.isSolid = true;
                 break;
 
             case 99:
-                tile = new Tile("lock_yellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Lock("lock_yellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "YELLOW");
                 tile.isSolid = true;
                 break;
 
@@ -1405,22 +1405,22 @@ public class TileFactory {
                 break;
 
             case 278:
-                tile = new Tile("lock_blue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Lock("lock_blue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "BLUE");
                 tile.isSolid = true;
                 break;
 
             case 279:
-                tile = new Tile("lock_green.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Lock("lock_green.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "GREEN");
                 tile.isSolid = true;
                 break;
 
             case 280:
-                tile = new Tile("lock_red.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Lock("lock_red.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "RED");
                 tile.isSolid = true;
                 break;
 
             case 281:
-                tile = new Tile("lock_yellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Lock("lock_yellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "YELLOW");
                 tile.isSolid = true;
                 break;
 
