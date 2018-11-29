@@ -331,7 +331,7 @@ public class TileFactory {
 
             case 63:
                 tile = new Tile("fenceBroken.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 64:
