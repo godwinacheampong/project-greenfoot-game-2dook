@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Godwin A. 
  * @version 0.1
  */
-public class WaterTop extends Tile
+public class WaterTop extends DeadlyTiles
 {
     /**
      * Act - do whatever the waterTop wants to do. This method is called whenever

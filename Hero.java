@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Hero extends Mover {
 // Stats
+
     private final double gravity;
     private final double acc;
     private final double drag;
@@ -24,10 +25,6 @@ public class Hero extends Mover {
     public boolean hasBlueKey;
     public boolean hasGreenKey;
     public boolean hasYellowKey;
-    
-    
-
-    
 
     /*
     ID: 0 -> Groene hero
@@ -46,7 +43,6 @@ public class Hero extends Mover {
 
     @Override
     public void act() {
-        // setImage("v");
         handleInput();
         ster();
         door();
@@ -58,7 +54,11 @@ public class Hero extends Mover {
             velocityY = gravity;
         }
         applyVelocity();
+        checkForIntersectingObjects();
 
+    }
+
+    public void checkForIntersectingObjects() {
         for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 // getWorld().removeObject(this);
@@ -76,19 +76,18 @@ public class Hero extends Mover {
                 break;
             }
         }
-
     }
 
     public void unlock() {
         List<Lock> locks = this.getNeighbours(100, true, Lock.class);
         if (!locks.isEmpty()) {
             for (int i = 0; i < locks.size(); i++) {
-                if(hasRedKey && locks.get(i).kleur == "RED") {
+                if (hasRedKey && locks.get(i).kleur == "RED") {
                     locks.get(i).setLocation(1000, 1000);
-                } else if(hasBlueKey && locks.get(i).kleur == "BLUE") {
+                } else if (hasBlueKey && locks.get(i).kleur == "BLUE") {
                     locks.get(i).setLocation(1000, 1000);
                 } else {
-                    System.out.println("No key.");
+                    // System.out.println("No key.");
                 }
             }
         }
@@ -104,10 +103,6 @@ public class Hero extends Mover {
                 System.out.println(d1);
             }
         }
-    }
-
-    public String getCoords() {
-        return "X: " + this.getX() + " Y: " + this.getY();
     }
 
     public boolean keySpace() {

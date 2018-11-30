@@ -536,7 +536,7 @@ public class TileFactory {
 
             case 104:
                 tile = new Tile("ropeVertical.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 105:
@@ -856,17 +856,17 @@ public class TileFactory {
 
             case 168:
                 tile = new Tile("tochLit.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid =false;
                 break;
 
             case 169:
                 tile = new Tile("tochLit2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid =false;
                 break;
 
             case 170:
                 tile = new Tile("torch.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 171:
@@ -1436,7 +1436,7 @@ public class TileFactory {
 
             case 284:
                 tile = new Tile("ropeVertical.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 285:
@@ -1731,17 +1731,17 @@ public class TileFactory {
 
             case 343:
                 tile = new Tile("tochLit.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid =false;
                 break;
 
             case 344:
                 tile = new Tile("tochLit2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 345:
                 tile = new Tile("torch.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 346:

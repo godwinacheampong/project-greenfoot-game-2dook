@@ -11,7 +11,7 @@ public class World2 extends World {
     private CollisionEngine ce;
     public String worldName = "World2";
     int heroSpawnX = 84;
-    int heroSpawnY = 687;
+    int heroSpawnY = 1600;
     int resetBtnX = 40;
     int resetBtnY = 45;
 
