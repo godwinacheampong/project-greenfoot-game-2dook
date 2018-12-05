@@ -1,4 +1,4 @@
-
+ 
 import greenfoot.*;
 import java.util.List;
 
@@ -7,31 +7,33 @@ import java.util.List;
  * @author R. Springer
  */
 public class Hero extends Mover {
-// Stats
+    // Stats
 
     private final double gravity;
     private final double acc;
     private final double drag;
     int charNum;
     private int ster;
-// Data
+    // Data
     public String worldName;
     private boolean inAir;
     public int direction = 2;
     public int animationTimer = 0;
     public int PicNum = 1;
-// Inventory
+
+    // Inventory
     public boolean hasRedKey;
     public boolean hasBlueKey;
     public boolean hasGreenKey;
     public boolean hasYellowKey;
-// Sounds    
+    // Sounds    
     GreenfootSound coinCollect = new GreenfootSound("sounds/star.wav");
     GreenfootSound keyCollect = new GreenfootSound("sounds/key.wav");
+    
     /*
     ID: 1 -> Groene hero
     ID: 2 -> Blauwe hero
-    ID: 3 -> Roze hero
+    ID: 3 -> Roze hero // Klein en langzaam
      */
     public Hero(String worldName, int charNum) {
         super();
@@ -144,7 +146,18 @@ public class Hero extends Mover {
         animatieStanding();
         animatieJump();
         if (keySpace() && opGrond() == true) {
-            velocityY = -14;
+            switch (charNum) {
+
+                case 1:
+                    velocityY = -14;
+                    break;
+                case 2:
+                    velocityY = -14;
+                    break;
+                case 3:
+                    velocityY = -14;
+                    break;
+            }
         } else if (Greenfoot.isKeyDown("up") && opGrond() == true) {
             velocityY = -14;
         }
@@ -152,20 +165,68 @@ public class Hero extends Mover {
             velocityY = -14;
         }
         if (keyLeft() && keyRight() == false) {
-            velocityX = -4;
-            direction = 1;
-            if (animationTimer % 10 == 0 && velocityY == 0) {
-                animatie();
+            switch (charNum) {
+                case 1:
+                    velocityX = -4;
+                    direction = 1;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+                    break;
+                case 2:
+                    velocityX = -2;
+                    direction = 1;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+                    break;
+                case 3:
+                    velocityX = -1;
+                    direction = 1;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+                    break;
+
+                default:
+                    break;
             }
-            animationTimer++;
 
         } else if (keyRight()) {
-            velocityX = 4;
-            direction = 2;
-            if (animationTimer % 10 == 0 && velocityY == 0) {
-                animatie();
+            switch (charNum) {
+
+                case 1:
+//                    GreenfootImage img = new GreenfootImage(this.getImage());
+//                    img.scale(getWidth(), getHeight() + 3);
+//                    setImage(img);
+                    velocityX = 4;
+                    direction = 2;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+                    break;
+                case 2:
+                    velocityX = 2;
+                    direction = 2;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+                case 3:
+                    velocityX = 1;
+                    direction = 2;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+
+                default:
+                    break;
             }
-            animationTimer++;
         }
     }
 
