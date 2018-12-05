@@ -16,7 +16,7 @@ public class Hero extends Mover {
     private int ster;
     // Data
     public String worldName;
-    private boolean inAir;
+    // private boolean inAir;
     public int direction = 2;
     public int animationTimer = 0;
     public int PicNum = 1;
@@ -175,7 +175,7 @@ public class Hero extends Mover {
             velocityY = -14; // ER MOET HIER EEN SWITCH STATEMENT
 
         }
-        if (Greenfoot.isKeyDown("h")) {
+        if (Greenfoot.isKeyDown("h")) { // DIT IS VOOR DEBUGGEN, NIET IN DE FINAL COMMIT ZETTEN
             velocityY = -14;
         }
         if (keyLeft() && keyRight() == false) {
@@ -274,11 +274,13 @@ public class Hero extends Mover {
                     keyCollect.play();
                     removeTouching(KeySpawnable.class);
                     break;
+                    
                     case "RED":
                     hasRedKey = true;
                     keyCollect.play();
                     removeTouching(KeySpawnable.class);
                     break;
+
                     case "GREEN":
                     hasGreenKey = true;
                     keyCollect.play();

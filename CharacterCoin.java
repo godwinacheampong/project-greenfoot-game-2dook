@@ -1,4 +1,6 @@
+
 import greenfoot.*;
+
 /**
  * Write a description of class CharacterCoin here.
  *
@@ -19,27 +21,26 @@ public class CharacterCoin extends Tile {
     ID: 1 -> Blauwe hero
     ID: 2 -> Roze hero
      */
-
-    public CharacterCoin(String image, int width, int height,int switchToHeroNum) {
+    public CharacterCoin(String image, int width, int height, int switchToHeroNum) {
         super(image, width, height);
         switch (switchToHeroNum) {
             case 1:
-            this.switchTo = switchToHeroNum;
-            this.setImage("hud_p1.png");
-            break;
+                this.switchTo = switchToHeroNum;
+                this.setImage("hud_p1.png");
+                break;
 
             case 2:
-            this.switchTo = switchToHeroNum;
-            this.setImage("hud_p2.png");
-            break;
+                this.switchTo = switchToHeroNum;
+                this.setImage("hud_p2.png");
+                break;
 
             case 3:
-            this.switchTo = switchToHeroNum;
-            this.setImage("hud_p3.png");
-            break;
+                this.switchTo = switchToHeroNum;
+                this.setImage("hud_p3.png");
+                break;
 
             default:
-            break;
+                break;
         }
     }
 
@@ -47,12 +48,11 @@ public class CharacterCoin extends Tile {
         // applyVelocity();
         for (Hero hero : getIntersectingObjects(Hero.class)) {
             if (hero != null) {
-                if(hero.charNum != switchTo) { 
+                if (hero.charNum != switchTo) {
                     GreenfootSound snd = new GreenfootSound("sounds/star.wav");
                     snd.play();
                 }
                 hero.charNum = switchTo;
-                
             }
         }
     }
