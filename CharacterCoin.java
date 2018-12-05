@@ -1,4 +1,4 @@
-
+import greenfoot.*;
 /**
  * Write a description of class CharacterCoin here.
  *
@@ -47,24 +47,12 @@ public class CharacterCoin extends Tile {
         // applyVelocity();
         for (Hero hero : getIntersectingObjects(Hero.class)) {
             if (hero != null) {
-                hero.charNum = switchTo;
-                switch(hero.charNum) {
-                    /*
-    ID: 0 -> Groene hero ()
-    ID: 1 -> Blauwe hero ()
-    ID: 2 -> Roze hero   ()
-     */
-                    case 1:
-                    
-                    break;
-                    case 2:
-                    break;
-                    case 3:
-                    break;
-
-                    default:
-                    break;
+                if(hero.charNum != switchTo) { 
+                    GreenfootSound snd = new GreenfootSound("sounds/star.wav");
+                    snd.play();
                 }
+                hero.charNum = switchTo;
+                
             }
         }
     }

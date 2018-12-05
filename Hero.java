@@ -158,21 +158,21 @@ public class Hero extends Mover {
             switch (charNum) {
 
                 case 1:
-                velocityY = -14;
+                velocityY = -14; // MOET NOG VERANDERD WORDEN
                 jmp.play();
                 break;
                 case 2:
-                velocityY = -14;
+                velocityY = -14; // MOET NOG VERANDERD WORDEN
                 jmp.play();
                 break;
                 case 3:
-                velocityY = -14;
+                velocityY = -14; // MOET NOG VERANDERD WORDEN
                 jmp.play();
                 break;
             }
         } else if (Greenfoot.isKeyDown("up") && opGrond() == true) {
             jmp.play();
-            velocityY = -14;
+            velocityY = -14; // ER MOET HIER EEN SWITCH STATEMENT
 
         }
         if (Greenfoot.isKeyDown("h")) {
@@ -213,9 +213,6 @@ public class Hero extends Mover {
             switch (charNum) {
 
                 case 1:
-                //                    GreenfootImage img = new GreenfootImage(this.getImage());
-                //                    img.scale(getWidth(), getHeight() + 3);
-                //                    setImage(img);
                 velocityX = 4;
                 direction = 2;
                 if (animationTimer % 10 == 0 && velocityY == 0) {
