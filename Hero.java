@@ -1,4 +1,4 @@
- 
+
 import greenfoot.*;
 import java.util.List;
 
@@ -29,7 +29,8 @@ public class Hero extends Mover {
     // Sounds    
     GreenfootSound coinCollect = new GreenfootSound("sounds/star.wav");
     GreenfootSound keyCollect = new GreenfootSound("sounds/key.wav");
-    
+    GreenfootSound jmp = new GreenfootSound("sounds/jump.wav");
+
     /*
     ID: 1 -> Groene hero
     ID: 2 -> Blauwe hero
@@ -51,6 +52,12 @@ public class Hero extends Mover {
         ster();
         door();
         key();
+        if(charNum == 3) {
+            GreenfootImage img = new GreenfootImage(this.getImage());
+            img.scale(66, 70);
+            setImage(img);
+        }
+
         unlock();
         velocityX *= drag;
         velocityY += acc;
@@ -75,13 +82,15 @@ public class Hero extends Mover {
         for (WaterTop wt : getIntersectingObjects(WaterTop.class)) {
             if (wt != null) {
                 getWorld().addObject(new GameOver(), 500, 200);
-
                 getWorld().removeObject(this);
                 break;
             }
         }
     }
 
+    public void initController() {
+
+    }
     public void unlock() {
         List<Lock> locks = this.getNeighbours(100, true, Lock.class);
         if (!locks.isEmpty()) {
@@ -149,17 +158,22 @@ public class Hero extends Mover {
             switch (charNum) {
 
                 case 1:
-                    velocityY = -14;
-                    break;
+                velocityY = -14;
+                jmp.play();
+                break;
                 case 2:
-                    velocityY = -14;
-                    break;
+                velocityY = -14;
+                jmp.play();
+                break;
                 case 3:
-                    velocityY = -14;
-                    break;
+                velocityY = -14;
+                jmp.play();
+                break;
             }
         } else if (Greenfoot.isKeyDown("up") && opGrond() == true) {
+            jmp.play();
             velocityY = -14;
+
         }
         if (Greenfoot.isKeyDown("h")) {
             velocityY = -14;
@@ -167,65 +181,65 @@ public class Hero extends Mover {
         if (keyLeft() && keyRight() == false) {
             switch (charNum) {
                 case 1:
-                    velocityX = -4;
-                    direction = 1;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
-                    break;
+                velocityX = -4;
+                direction = 1;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
+                break;
                 case 2:
-                    velocityX = -2;
-                    direction = 1;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
-                    break;
+                velocityX = -2;
+                direction = 1;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
+                break;
                 case 3:
-                    velocityX = -1;
-                    direction = 1;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
-                    break;
+                velocityX = -1;
+                direction = 1;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
+                break;
 
                 default:
-                    break;
+                break;
             }
 
         } else if (keyRight()) {
             switch (charNum) {
 
                 case 1:
-//                    GreenfootImage img = new GreenfootImage(this.getImage());
-//                    img.scale(getWidth(), getHeight() + 3);
-//                    setImage(img);
-                    velocityX = 4;
-                    direction = 2;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
-                    break;
+                //                    GreenfootImage img = new GreenfootImage(this.getImage());
+                //                    img.scale(getWidth(), getHeight() + 3);
+                //                    setImage(img);
+                velocityX = 4;
+                direction = 2;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
+                break;
                 case 2:
-                    velocityX = 2;
-                    direction = 2;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
+                velocityX = 2;
+                direction = 2;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
                 case 3:
-                    velocityX = 1;
-                    direction = 2;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
+                velocityX = 1;
+                direction = 2;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
 
                 default:
-                    break;
+                break;
             }
         }
     }
@@ -259,23 +273,23 @@ public class Hero extends Mover {
             if (ks != null) {
                 switch (ks.keyColor) {
                     case "BLUE":
-                        hasBlueKey = true;
-                        keyCollect.play();
-                        removeTouching(KeySpawnable.class);
-                        break;
+                    hasBlueKey = true;
+                    keyCollect.play();
+                    removeTouching(KeySpawnable.class);
+                    break;
                     case "RED":
-                        hasRedKey = true;
-                        keyCollect.play();
-                        removeTouching(KeySpawnable.class);
-                        break;
+                    hasRedKey = true;
+                    keyCollect.play();
+                    removeTouching(KeySpawnable.class);
+                    break;
                     case "GREEN":
-                        hasGreenKey = true;
-                        keyCollect.play();
-                        removeTouching(KeySpawnable.class);
-                        break;
+                    hasGreenKey = true;
+                    keyCollect.play();
+                    removeTouching(KeySpawnable.class);
+                    break;
 
                     default:
-                        System.out.println("No key color specified in constructor. Check KeySpawnable.java");
+                    System.out.println("No key color specified in constructor. Check KeySpawnable.java");
                 }
             }
         }
