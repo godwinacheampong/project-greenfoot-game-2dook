@@ -25,11 +25,13 @@ public class Hero extends Mover {
     public boolean hasBlueKey;
     public boolean hasGreenKey;
     public boolean hasYellowKey;
-
+// Sounds    
+    GreenfootSound coinCollect = new GreenfootSound("sounds/star.wav");
+    GreenfootSound keyCollect = new GreenfootSound("sounds/key.wav");
     /*
-    ID: 0 -> Groene hero
-    ID: 1 -> Blauwe hero
-    ID: 2 -> Roze hero
+    ID: 1 -> Groene hero
+    ID: 2 -> Blauwe hero
+    ID: 3 -> Roze hero
      */
     public Hero(String worldName, int charNum) {
         super();
@@ -186,6 +188,7 @@ public class Hero extends Mover {
     public void ster() {
         if (isTouching(Ster.class)) {
             removeTouching(Ster.class);
+            coinCollect.play();
             getWorld().getObjects(SterCount.class).get(0).starsCollected++;
         }
     }
@@ -196,14 +199,17 @@ public class Hero extends Mover {
                 switch (ks.keyColor) {
                     case "BLUE":
                         hasBlueKey = true;
+                        keyCollect.play();
                         removeTouching(KeySpawnable.class);
                         break;
                     case "RED":
                         hasRedKey = true;
+                        keyCollect.play();
                         removeTouching(KeySpawnable.class);
                         break;
                     case "GREEN":
                         hasGreenKey = true;
+                        keyCollect.play();
                         removeTouching(KeySpawnable.class);
                         break;
 

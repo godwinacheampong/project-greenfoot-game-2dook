@@ -13,6 +13,11 @@ public class ResetButton extends UI {
      * Act - do whatever the ResetButton wants to do. This method is called
      * whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public ResetButton() {
+        GreenfootImage img = new GreenfootImage(this.getImage());
+        img.scale(200/*Width*/, 100/*Height*/);
+        setImage(img);
+    }
     public void act() {
         if (Greenfoot.mouseClicked(this)) {
             getWorld().addObject(new GameOver(), 500, 200);

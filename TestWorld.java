@@ -12,8 +12,8 @@ public class TestWorld extends World {
     public String worldName = "TestWorld";
     int heroSpawnX = 500;
     int heroSpawnY = 500;
-    int resetBtnX = 40;
-    int resetBtnY = 45;
+    int resetBtnX = 882;
+    int resetBtnY = 740;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -51,6 +51,7 @@ public class TestWorld extends World {
                 {-1,-1,177,325,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,179,-1,-1,-1,-1,-1,178,-1,-1,-1,-1,340,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
                 {340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340},
             };
+            // System.out.println(map.length);
         // Declareren en initialiseren van de TileEngine klasse om de map aan de world toe te voegen
         TileEngine te = new TileEngine(this, 60, 60, map);
         // Declareren en initialiseren van de camera klasse met de TileEngine klasse 

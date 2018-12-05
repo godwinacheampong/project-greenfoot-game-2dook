@@ -15,8 +15,8 @@ public class World1 extends World {
     /* int[] star1 = {445, 733};
     int[] star2 = {789, 493};
     int[] star3 = {1683, 733}; */ // Sterren kunnen ook in de wereld worden geplaatst als Tiles.
-    int resetX = 40;
-    int resetY = 45;
+    int resetBtnX = 882;
+    int resetBtnY = 740;
     int star2SpawnXPos;
     int star2SpawnYPos;
 
@@ -46,7 +46,6 @@ public class World1 extends World {
                 {82,82,82,82,82,82,82,82,76,65,65,65,65,65,93,93,93,93,93,93,93,65,65,65,65,78,82,82,82,82,82,-1,-1,-1,-1,-1,-1,-1,-1,-1},
                 {65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,95,95,95,95,95,95,95,95,95},
             };
-
         // Declareren en initialiseren van de TileEngine klasse om de map aan de world toe te voegen
         TileEngine te = new TileEngine(this, 60, 60, map);
         // Declareren en initialiseren van de camera klasse met de TileEngine klasse 
@@ -60,11 +59,9 @@ public class World1 extends World {
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
         addObject(camera, 0, 0);
         addObject(hero, heroSpawnX, heroSpawnY);
-        /*addObject(new Ster(), star1[0], star1[1]);
-        addObject(new Ster(), star2[0], star2[1]);
-        addObject(new Ster(), star3[0], star3[1]);*/
+
         addObject(new SterCount(), 907, 30);
-        addObject(new ResetButton(), resetX, resetY);
+        addObject(new ResetButton(), resetBtnX, resetBtnY);
 
         //   addObject(new Enemy(), 1170, 410);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
