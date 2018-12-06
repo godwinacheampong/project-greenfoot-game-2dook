@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class SelectableLevel extends Actor
 {
     int worldNumber;
+    boolean locked;
     /**
      * Act - do whatever the SelectableLevel wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,6 +27,7 @@ public class SelectableLevel extends Actor
             switch(worldNumber) {
                 case 0:
                 Greenfoot.setWorld(new World1());
+                
                 break;
                 case 1:
                 Greenfoot.setWorld(new World2());

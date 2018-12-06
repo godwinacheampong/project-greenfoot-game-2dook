@@ -856,12 +856,12 @@ public class TileFactory {
 
             case 168:
                 tile = new Tile("tochLit.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid =false;
+                tile.isSolid = false;
                 break;
 
             case 169:
                 tile = new Tile("tochLit2.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid =false;
+                tile.isSolid = false;
                 break;
 
             case 170:
@@ -1215,13 +1215,13 @@ public class TileFactory {
                 break;
 
             case 240:
-                tile = new Door("door_closedMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT,0);
+                tile = new Door("door_closedMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
                 tile.isSolid = false;
                 break;
 
-                case 241:
-                    tile = new Door("door_closedTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
-                    tile.isSolid = false;
+            case 241:
+                tile = new Door("door_closedTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, 0);
+                tile.isSolid = false;
                 break;
 
             case 242:
@@ -1731,7 +1731,7 @@ public class TileFactory {
 
             case 343:
                 tile = new Tile("tochLit.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid =false;
+                tile.isSolid = false;
                 break;
 
             case 344:
