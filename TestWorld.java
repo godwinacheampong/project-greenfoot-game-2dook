@@ -22,7 +22,7 @@ public class TestWorld extends World {
     public TestWorld() {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 800, 1, false);
-        this.setBackground("bg.png");
+        this.setBackground("bg2.png");
 
         int[][] map = {
 
@@ -42,8 +42,8 @@ public class TestWorld extends World {
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,284,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,340,-1,-1,-1,-1,-1},
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,284,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,340,340,340,340,-1,-1,-1,-1,-1,-1},
                 {243,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,284,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,340,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {242,-1,177,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,284,-1,-1,-1,179,-1,-1,-1,-1,-1,178,-1,-1,-1,-1,340,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340},
+                {242,-1,177,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,284,-1,-1,-1,179,-1,-1,-1,-1,-1,178,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,-1,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340,340},
             };
         // System.out.println(map.length);
         // Declareren en initialiseren van de TileEngine klasse om de map aan de world toe te voegen
@@ -64,7 +64,8 @@ public class TestWorld extends World {
         addObject(new SterCount(), 907, 30);
         // addObject(new ResetButton(), resetBtnX, resetBtnY);
         // addObject(new Enemy(), 1163, 986);
-        addObject(new Plat1(), 710, 900);
+        addObject(new Platform(), 710, 900);
+        addObject(new Platform(), 640, 900);
         //   addObject(new Enemy(), 1170, 410);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
         // De collision engine kijkt alleen naar de tiles die de variabele solid op true hebben staan.

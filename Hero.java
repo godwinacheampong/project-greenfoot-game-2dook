@@ -52,18 +52,18 @@ public class Hero extends Mover {
         ster();
         door();
         key();
-        if(charNum == 3) {
+        if (charNum == 3) {
             GreenfootImage img = new GreenfootImage(this.getImage());
-            img.scale(66, 70);
+            img.scale(66, 50);
             setImage(img);
         }
-        if(isTouching(Plat1.class)) {
+        if (isTouching(Platform.class)) {
             velocityY = -1;
-            if(keySpace() || keyUp() ) {
+            if (keySpace() || keyUp()) {
                 velocityY = -14;
             }
         }
-            
+
         unlock();
         velocityX *= drag;
         velocityY += acc;
@@ -83,24 +83,28 @@ public class Hero extends Mover {
                 break;
             }
         }
-        for(Rope rp : getIntersectingObjects(Rope.class)) {
-            if(rp != null) {
-                if(keySpace() || keyUp()) {
-                    velocityY =- 7;
+        for (Rope rp : getIntersectingObjects(Rope.class)) {
+            if (rp != null) {
+                if (keySpace() || keyUp()) {
+                    velocityY = -7;
+                } else if (Greenfoot.isKeyDown("down")) {
+                    velocityY = 7;
                 }
             }
+            /* for (Actor enemy : getIntersectingObjects(Enemy.class)) {
+        if (enemy != null) {
+        // getWorld().removeObject(this);
+        getWorld().addObject(new GameOver(), 500, 200);
+        getWorld().removeObject(this);
+        // setLocation(300, 200);
+        break;
         }
-       /* for (Actor enemy : getIntersectingObjects(Enemy.class)) {
-            if (enemy != null) {
-                // getWorld().removeObject(this);
-                getWorld().addObject(new GameOver(), 500, 200);
-                getWorld().removeObject(this);
-                // setLocation(300, 200);
-                break;
-            }
         }*/
-        
+
+        }
     }
+
+    
 
     public boolean keyUp() {
         return Greenfoot.isKeyDown("up");
@@ -173,17 +177,17 @@ public class Hero extends Mover {
             switch (charNum) {
 
                 case 1:
-                velocityY = -14; // MOET NOG VERANDERD WORDEN
-                jmp.play();
-                break;
+                    velocityY = -14; // MOET NOG VERANDERD WORDEN
+                    jmp.play();
+                    break;
                 case 2:
-                velocityY = -14; // MOET NOG VERANDERD WORDEN
-                jmp.play();
-                break;
+                    velocityY = -14; // MOET NOG VERANDERD WORDEN
+                    jmp.play();
+                    break;
                 case 3:
-                velocityY = -14; // MOET NOG VERANDERD WORDEN
-                jmp.play();
-                break;
+                    velocityY = -14; // MOET NOG VERANDERD WORDEN
+                    jmp.play();
+                    break;
             }
         } else if (Greenfoot.isKeyDown("up") && opGrond() == true) {
             jmp.play();
@@ -196,62 +200,62 @@ public class Hero extends Mover {
         if (keyLeft() && keyRight() == false) {
             switch (charNum) {
                 case 1:
-                velocityX = -4;
-                direction = 1;
-                if (animationTimer % 10 == 0 && velocityY == 0) {
-                    animatie();
-                }
-                animationTimer++;
-                break;
+                    velocityX = -4;
+                    direction = 1;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+                    break;
                 case 2:
-                velocityX = -2;
-                direction = 1;
-                if (animationTimer % 10 == 0 && velocityY == 0) {
-                    animatie();
-                }
-                animationTimer++;
-                break;
+                    velocityX = -2;
+                    direction = 1;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+                    break;
                 case 3:
-                velocityX = -1;
-                direction = 1;
-                if (animationTimer % 10 == 0 && velocityY == 0) {
-                    animatie();
-                }
-                animationTimer++;
-                break;
+                    velocityX = -1;
+                    direction = 1;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+                    break;
 
                 default:
-                break;
+                    break;
             }
 
         } else if (keyRight()) {
             switch (charNum) {
 
                 case 1:
-                velocityX = 4;
-                direction = 2;
-                if (animationTimer % 10 == 0 && velocityY == 0) {
-                    animatie();
-                }
-                animationTimer++;
-                break;
+                    velocityX = 4;
+                    direction = 2;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
+                    break;
                 case 2:
-                velocityX = 2;
-                direction = 2;
-                if (animationTimer % 10 == 0 && velocityY == 0) {
-                    animatie();
-                }
-                animationTimer++;
+                    velocityX = 2;
+                    direction = 2;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
                 case 3:
-                velocityX = 1;
-                direction = 2;
-                if (animationTimer % 10 == 0 && velocityY == 0) {
-                    animatie();
-                }
-                animationTimer++;
+                    velocityX = 1;
+                    direction = 2;
+                    if (animationTimer % 10 == 0 && velocityY == 0) {
+                        animatie();
+                    }
+                    animationTimer++;
 
                 default:
-                break;
+                    break;
             }
         }
     }
@@ -285,25 +289,25 @@ public class Hero extends Mover {
             if (ks != null) {
                 switch (ks.keyColor) {
                     case "BLUE":
-                    hasBlueKey = true;
-                    keyCollect.play();
-                    removeTouching(KeySpawnable.class);
-                    break;
+                        hasBlueKey = true;
+                        keyCollect.play();
+                        removeTouching(KeySpawnable.class);
+                        break;
 
                     case "RED":
-                    hasRedKey = true;
-                    keyCollect.play();
-                    removeTouching(KeySpawnable.class);
-                    break;
+                        hasRedKey = true;
+                        keyCollect.play();
+                        removeTouching(KeySpawnable.class);
+                        break;
 
                     case "GREEN":
-                    hasGreenKey = true;
-                    keyCollect.play();
-                    removeTouching(KeySpawnable.class);
-                    break;
+                        hasGreenKey = true;
+                        keyCollect.play();
+                        removeTouching(KeySpawnable.class);
+                        break;
 
                     default:
-                    System.out.println("No key color specified in constructor. Check KeySpawnable.java");
+                        System.out.println("No key color specified in constructor. Check KeySpawnable.java");
                 }
             }
         }
