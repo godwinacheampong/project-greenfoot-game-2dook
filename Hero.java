@@ -57,7 +57,13 @@ public class Hero extends Mover {
             img.scale(66, 70);
             setImage(img);
         }
-
+        if(isTouching(Plat1.class)) {
+            velocityY = -1;
+            if(keySpace() || keyUp() ) {
+                velocityY = -14;
+            }
+        }
+            
         unlock();
         velocityX *= drag;
         velocityY += acc;
@@ -70,15 +76,6 @@ public class Hero extends Mover {
     }
 
     public void checkForIntersectingObjects() {
-        for (Actor enemy : getIntersectingObjects(Enemy.class)) {
-            if (enemy != null) {
-                // getWorld().removeObject(this);
-                getWorld().addObject(new GameOver(), 500, 200);
-                getWorld().removeObject(this);
-                // setLocation(300, 200);
-                break;
-            }
-        }
         for (WaterTop wt : getIntersectingObjects(WaterTop.class)) {
             if (wt != null) {
                 getWorld().addObject(new GameOver(), 500, 200);
@@ -86,11 +83,29 @@ public class Hero extends Mover {
                 break;
             }
         }
+        for(Rope rp : getIntersectingObjects(Rope.class)) {
+            if(rp != null) {
+                if(keySpace() || keyUp()) {
+                    velocityY =- 7;
+                }
+            }
+        }
+       /* for (Actor enemy : getIntersectingObjects(Enemy.class)) {
+            if (enemy != null) {
+                // getWorld().removeObject(this);
+                getWorld().addObject(new GameOver(), 500, 200);
+                getWorld().removeObject(this);
+                // setLocation(300, 200);
+                break;
+            }
+        }*/
+        
     }
 
-    public void initController() {
-
+    public boolean keyUp() {
+        return Greenfoot.isKeyDown("up");
     }
+
     public void unlock() {
         List<Lock> locks = this.getNeighbours(100, true, Lock.class);
         if (!locks.isEmpty()) {
@@ -274,7 +289,7 @@ public class Hero extends Mover {
                     keyCollect.play();
                     removeTouching(KeySpawnable.class);
                     break;
-                    
+
                     case "RED":
                     hasRedKey = true;
                     keyCollect.play();
