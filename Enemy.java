@@ -21,7 +21,14 @@ public class Enemy extends Mover {
         firstAct = true;
         speed = 1;
     }
-
+public Enemy(String enemyName) {
+        super();
+        setImage("pokerMad.png");
+        getImage().mirrorHorizontally();
+        walkRange = 140;
+        firstAct = true;
+        speed = 1;
+    }
     @Override
     public void act() {
         int x = getX();

@@ -185,7 +185,6 @@ public class Hero extends Mover {
         animatieJump();
         if (keySpace() && opGrond() == true) {
             switch (charNum) {
-
                 case 1:
                 velocityY = -14; // MOET NOG VERANDERD WORDEN
                 jmp.play();
@@ -298,11 +297,7 @@ public class Hero extends Mover {
         for (Key kn : getIntersectingObjects(Key.class)) {
             if (kn != null) {
                 switch (kn.keyColor) {
-                    case "BLUE":
-                    hasBlueKey = true;
-                    keyCollect.play();
-                    removeTouching(Key.class);
-                    break;
+                    
 
                     case "RED":
                     hasRedKey = true;
@@ -312,6 +307,12 @@ public class Hero extends Mover {
 
                     case "GREEN":
                     hasGreenKey = true;
+                    keyCollect.play();
+                    removeTouching(Key.class);
+                    break;
+                    
+                    case "BLUE":
+                    hasBlueKey = true;
                     keyCollect.play();
                     removeTouching(Key.class);
                     break;
