@@ -55,7 +55,7 @@ public class Hero extends Mover {
         key();
         if (charNum == 3) {
             GreenfootImage img = new GreenfootImage(this.getImage());
-            img.scale(66, 50);
+            img.scale(40, 50);
             setImage(img);
         }
         if (isTouching(Platform.class)) {
@@ -77,6 +77,17 @@ public class Hero extends Mover {
     }
 
     public void checkForIntersectingObjects() {
+        for(Diamant dt : getIntersectingObjects(Diamant.class)) {
+            if(dt != null) {
+                List<Display> displays = getWorld().getObjects(Display.class);
+                for(int i = 0; i < displays.size();i++) {
+                    if(displays.get(i).dispname.equals("DiamondHUD")) {
+                        displays.get(i).setImage("HUD/hud_gem_blue.png");
+                        getWorld().removeObject(dt);
+                    }
+                }
+            }
+        }
         for (WaterTop wt : getIntersectingObjects(WaterTop.class)) {
             if (wt != null) {
                 getWorld().addObject(new GameOver(), 500, 200);

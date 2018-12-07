@@ -43,9 +43,13 @@ public class Display extends UI {
                         displays.get(i).setImage("HUD/hud_keyBlue.png");
                     }
                 }
+            case "DiamondHUD":
+                for (int i = 0; i < displays.size(); i++) {
+                    if (displays.get(i).dispname.equals("DiamondHUD") && getWorld().getObjects(Hero.class).get(0).hasDiamond) {
+                        displays.get(i).setImage("HUD/hud_gem_blue.png");
+                    }
+                }
         }
-        if (dispname.equals("DiamondHUD") && getWorld().getObjects(Hero.class).get(0).hasDiamond) {
-            this.setLocation(100, 100);
-        }
+
     }
 }
