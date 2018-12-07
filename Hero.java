@@ -104,8 +104,6 @@ public class Hero extends Mover {
         }
     }
 
-    
-
     public boolean keyUp() {
         return Greenfoot.isKeyDown("up");
     }
@@ -285,29 +283,55 @@ public class Hero extends Mover {
     }
 
     public void key() {
-        for (KeySpawnable ks : getIntersectingObjects(KeySpawnable.class)) {
-            if (ks != null) {
-                switch (ks.keyColor) {
+        for (Key kn : getIntersectingObjects(Key.class)) {
+            if (kn != null) {
+                switch (kn.keyColor) {
                     case "BLUE":
                         hasBlueKey = true;
                         keyCollect.play();
-                        removeTouching(KeySpawnable.class);
+                        removeTouching(Key.class);
                         break;
 
                     case "RED":
                         hasRedKey = true;
                         keyCollect.play();
-                        removeTouching(KeySpawnable.class);
+                        removeTouching(Key.class);
                         break;
 
                     case "GREEN":
                         hasGreenKey = true;
                         keyCollect.play();
-                        removeTouching(KeySpawnable.class);
+                        removeTouching(Key.class);
                         break;
 
                     default:
-                        System.out.println("No key color specified in constructor. Check KeySpawnable.java");
+                        System.out.println("No key color specified in constructor. Check Key.java");
+                }
+            }
+            for (KeySpawnable ks : getIntersectingObjects(KeySpawnable.class)) {
+                if (ks != null) {
+                    switch (ks.keyColor) {
+                        case "BLUE":
+                            hasBlueKey = true;
+                            keyCollect.play();
+                            removeTouching(KeySpawnable.class);
+                            break;
+
+                        case "RED":
+                            hasRedKey = true;
+                            keyCollect.play();
+                            removeTouching(KeySpawnable.class);
+                            break;
+
+                        case "GREEN":
+                            hasGreenKey = true;
+                            keyCollect.play();
+                            removeTouching(KeySpawnable.class);
+                            break;
+
+                        default:
+                            System.out.println("No key color specified in constructor. Check KeySpawnable.java");
+                    }
                 }
             }
         }

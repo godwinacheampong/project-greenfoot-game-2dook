@@ -880,23 +880,23 @@ public class TileFactory {
                 break;
 
             case 173:
-                tile = new Tile("keyBlue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Key("keyBlue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "BLUE");
+                tile.isSolid = false;
                 break;
 
             case 174:
-                tile = new Tile("keyGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Key("keyGreen.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "GREEN");
+                tile.isSolid = false;
                 break;
 
             case 175:
-                tile = new Tile("keyRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Key("keyRed.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "RED");
+                tile.isSolid = false;
                 break;
 
             case 176:
-                tile = new Tile("keyYellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new Key("keyYellow.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT, "YELLOW");
+                tile.isSolid = false;
                 break;
 
             case 177:
