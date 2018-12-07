@@ -26,6 +26,7 @@ public class Hero extends Mover {
     public boolean hasBlueKey;
     public boolean hasGreenKey;
     public boolean hasYellowKey;
+    public boolean hasDiamond;
     // Sounds    
     GreenfootSound coinCollect = new GreenfootSound("sounds/star.wav");
     GreenfootSound keyCollect = new GreenfootSound("sounds/key.wav");
@@ -92,14 +93,14 @@ public class Hero extends Mover {
                 }
             }
             /* for (Actor enemy : getIntersectingObjects(Enemy.class)) {
-        if (enemy != null) {
-        // getWorld().removeObject(this);
-        getWorld().addObject(new GameOver(), 500, 200);
-        getWorld().removeObject(this);
-        // setLocation(300, 200);
-        break;
-        }
-        }*/
+            if (enemy != null) {
+            // getWorld().removeObject(this);
+            getWorld().addObject(new GameOver(), 500, 200);
+            getWorld().removeObject(this);
+            // setLocation(300, 200);
+            break;
+            }
+            }*/
 
         }
     }
@@ -175,17 +176,17 @@ public class Hero extends Mover {
             switch (charNum) {
 
                 case 1:
-                    velocityY = -14; // MOET NOG VERANDERD WORDEN
-                    jmp.play();
-                    break;
+                velocityY = -14; // MOET NOG VERANDERD WORDEN
+                jmp.play();
+                break;
                 case 2:
-                    velocityY = -14; // MOET NOG VERANDERD WORDEN
-                    jmp.play();
-                    break;
+                velocityY = -14; // MOET NOG VERANDERD WORDEN
+                jmp.play();
+                break;
                 case 3:
-                    velocityY = -14; // MOET NOG VERANDERD WORDEN
-                    jmp.play();
-                    break;
+                velocityY = -14; // MOET NOG VERANDERD WORDEN
+                jmp.play();
+                break;
             }
         } else if (Greenfoot.isKeyDown("up") && opGrond() == true) {
             jmp.play();
@@ -198,62 +199,62 @@ public class Hero extends Mover {
         if (keyLeft() && keyRight() == false) {
             switch (charNum) {
                 case 1:
-                    velocityX = -4;
-                    direction = 1;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
-                    break;
+                velocityX = -4;
+                direction = 1;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
+                break;
                 case 2:
-                    velocityX = -2;
-                    direction = 1;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
-                    break;
+                velocityX = -2;
+                direction = 1;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
+                break;
                 case 3:
-                    velocityX = -1;
-                    direction = 1;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
-                    break;
+                velocityX = -1;
+                direction = 1;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
+                break;
 
                 default:
-                    break;
+                break;
             }
 
         } else if (keyRight()) {
             switch (charNum) {
 
                 case 1:
-                    velocityX = 4;
-                    direction = 2;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
-                    break;
+                velocityX = 4;
+                direction = 2;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
+                break;
                 case 2:
-                    velocityX = 2;
-                    direction = 2;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
+                velocityX = 2;
+                direction = 2;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
                 case 3:
-                    velocityX = 1;
-                    direction = 2;
-                    if (animationTimer % 10 == 0 && velocityY == 0) {
-                        animatie();
-                    }
-                    animationTimer++;
+                velocityX = 1;
+                direction = 2;
+                if (animationTimer % 10 == 0 && velocityY == 0) {
+                    animatie();
+                }
+                animationTimer++;
 
                 default:
-                    break;
+                break;
             }
         }
     }
@@ -287,50 +288,50 @@ public class Hero extends Mover {
             if (kn != null) {
                 switch (kn.keyColor) {
                     case "BLUE":
-                        hasBlueKey = true;
-                        keyCollect.play();
-                        removeTouching(Key.class);
-                        break;
+                    hasBlueKey = true;
+                    keyCollect.play();
+                    removeTouching(Key.class);
+                    break;
 
                     case "RED":
-                        hasRedKey = true;
-                        keyCollect.play();
-                        removeTouching(Key.class);
-                        break;
+                    hasRedKey = true;
+                    keyCollect.play();
+                    removeTouching(Key.class);
+                    break;
 
                     case "GREEN":
-                        hasGreenKey = true;
-                        keyCollect.play();
-                        removeTouching(Key.class);
-                        break;
+                    hasGreenKey = true;
+                    keyCollect.play();
+                    removeTouching(Key.class);
+                    break;
 
                     default:
-                        System.out.println("No key color specified in constructor. Check Key.java");
+                    System.out.println("No key color specified in constructor. Check Key.java");
                 }
             }
             for (KeySpawnable ks : getIntersectingObjects(KeySpawnable.class)) {
                 if (ks != null) {
                     switch (ks.keyColor) {
-                        case "BLUE":
-                            hasBlueKey = true;
-                            keyCollect.play();
-                            removeTouching(KeySpawnable.class);
-                            break;
 
                         case "RED":
-                            hasRedKey = true;
-                            keyCollect.play();
-                            removeTouching(KeySpawnable.class);
-                            break;
+                        hasRedKey = true;
+                        keyCollect.play();
+                        removeTouching(KeySpawnable.class);
+                        break;
 
                         case "GREEN":
-                            hasGreenKey = true;
-                            keyCollect.play();
-                            removeTouching(KeySpawnable.class);
-                            break;
+                        hasGreenKey = true;
+                        keyCollect.play();
+                        removeTouching(KeySpawnable.class);
+                        break;
+                        case "BLUE":
+                        hasBlueKey = true;
+                        keyCollect.play();
+                        removeTouching(KeySpawnable.class);
+                        break;
 
                         default:
-                            System.out.println("No key color specified in constructor. Check KeySpawnable.java");
+                        System.out.println("No key color specified in constructor. Check KeySpawnable.java");
                     }
                 }
             }

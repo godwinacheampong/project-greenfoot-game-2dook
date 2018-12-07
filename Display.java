@@ -26,27 +26,26 @@ public class Display extends UI {
         List<Display> displays = getWorld().getObjects(Display.class);
         switch (dispname) {
             case "RedKeyHUD":
-
                 for (int i = 0; i < displays.size(); i++) {
                     if (displays.get(i).dispname == "RedKeyHUD" && getWorld().getObjects(Hero.class).get(0).hasRedKey) {
                         displays.get(i).setImage("HUD/hud_keyRed.png");
                     }
                 }
             case "GreenKeyHUD":
-
                 for (int i = 0; i < displays.size(); i++) {
                     if (displays.get(i).dispname == "GreenKeyHUD" && getWorld().getObjects(Hero.class).get(0).hasGreenKey) {
                         displays.get(i).setImage("HUD/hud_keyGreen.png");
                     }
                 }
             case "BlueKeyHUD":
-
                 for (int i = 0; i < displays.size(); i++) {
-                    if (displays.get(i).dispname == "BlueKeyHUD" && getWorld().getObjects(Hero.class).get(0).hasBlueKey) {
+                    if (displays.get(i).dispname.equals("BlueKeyHUD") && getWorld().getObjects(Hero.class).get(0).hasBlueKey) {
                         displays.get(i).setImage("HUD/hud_keyBlue.png");
                     }
                 }
-
+        }
+        if (dispname.equals("DiamondHUD") && getWorld().getObjects(Hero.class).get(0).hasDiamond) {
+            this.setLocation(100, 100);
         }
     }
 }
