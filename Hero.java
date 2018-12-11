@@ -45,7 +45,6 @@ public class Hero extends Mover {
         gravity = 8;
         acc = 0.6;
         drag = 0.8;
-        // setImage("p" + charNum + "_front.png");
         this.worldName = worldName;
         this.charNum = charNum;
     }
@@ -56,18 +55,8 @@ public class Hero extends Mover {
         ster();
         door();
         key();
-        if (charNum == 3) {
-            GreenfootImage img = new GreenfootImage(this.getImage());
-            img.scale(40, 50);
-            setImage(img);
-        }
-        if (isTouching(Platform.class)) {
-            velocityY = -1;
-            if (keySpace() || keyUp()) {
-                velocityY = -14;
-            }
-        }
-
+        customGedrag();
+        _float();
         unlock();
         velocityX *= drag;
         velocityY += acc;
@@ -76,16 +65,34 @@ public class Hero extends Mover {
         }
         applyVelocity();
         checkForIntersectingObjects();
+    }
 
+    public void customGedrag() {
+
+        if (charNum == 3) {
+            GreenfootImage img = new GreenfootImage(this.getImage());
+            img.scale(40, 50);
+            setImage(img);
+        }
+    }
+
+    public void _float() {
+        if (isTouching(Platform.class)) {
+            velocityY = -1;
+            if (keySpace() || keyUp()) {
+                velocityY = -14;
+            }
+        }
     }
 
     public void checkForIntersectingObjects() {
-        for (Diamant dt : getIntersectingObjects(Diamant.class)) {
+        for (Diamond dt : getIntersectingObjects(Diamond.class)) {
             if (dt != null) {
                 List<Display> displays = getWorld().getObjects(Display.class);
                 for (int i = 0; i < displays.size(); i++) {
                     if (displays.get(i).dispname.equals("DiamondHUD")) {
                         displays.get(i).setImage("HUD/hud_gem_blue.png");
+                        coinCollect.play();
                         getWorld().removeObject(dt);
                     }
                 }
@@ -111,7 +118,8 @@ public class Hero extends Mover {
             if (enemy != null) {
                 if (alive) {
                     alive = false;
-                   // getWorld().addObject(new GameOver(), 500, 200);
+                    Greenfoot.setWorld(new GameOverScreen(this.worldName));
+                    
                     // getWorld().removeObject(this);
                 }
                 // setLocation(300, 200);

@@ -1749,7 +1749,7 @@ public class TileFactory {
                 tile.isSolid = true;
                 break;
             case 347:
-                tile = new Diamant("HUD/hud_gem_blue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile = new Diamond("HUD/hud_gem_blue.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = false;
                 break;
 
