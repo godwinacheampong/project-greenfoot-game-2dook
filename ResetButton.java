@@ -15,12 +15,12 @@ public class ResetButton extends UI {
      */
     public ResetButton() {
         GreenfootImage img = new GreenfootImage(this.getImage());
-        img.scale(200/*Width*/, 100/*Height*/);
+        img.scale(200, 100);
         setImage(img);
     }
     public void act() {
         if (Greenfoot.mouseClicked(this)) {
-            getWorld().addObject(new GameOver(), 500, 200);
+            // getWorld().addObject(new GameOver(), 500, 200);
         }
 
     }
