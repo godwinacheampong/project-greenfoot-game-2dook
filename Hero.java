@@ -48,7 +48,7 @@ public class Hero extends Mover {
         this.worldName = worldName;
         this.charNum = charNum;
     }
-
+    
     @Override
     public void act() {
         handleInput();
@@ -84,7 +84,10 @@ public class Hero extends Mover {
             }
         }
     }
-
+    public Data getPlayerData() {
+        
+        
+    }
     public void checkForIntersectingObjects() {
         for (Diamond dt : getIntersectingObjects(Diamond.class)) {
             if (dt != null) {
