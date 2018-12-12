@@ -49,7 +49,7 @@ public class Hero extends Mover {
         this.worldName = worldName;
         this.charNum = charNum;
     }
-    
+
     @Override
     public void act() {
         handleInput();
@@ -67,16 +67,16 @@ public class Hero extends Mover {
         applyVelocity();
         checkForIntersectingObjects();
     }
-    
+
     public void customGedrag() {
-        
+
         if (charNum == 3) {
             GreenfootImage img = new GreenfootImage(this.getImage());
             img.scale(40, 50);
             setImage(img);
         }
     }
-    
+
     public void _float() {
         if (isTouching(Platform.class)) {
             velocityY = -1;
@@ -131,11 +131,11 @@ public class Hero extends Mover {
             }
         }
     }
-    
+
     public boolean keyUp() {
         return Greenfoot.isKeyDown("up");
     }
-    
+
     public void unlock() {
         List<Lock> locks = this.getNeighbours(100, true, Lock.class);
         if (!locks.isEmpty()) {
@@ -150,11 +150,11 @@ public class Hero extends Mover {
             }
         }
     }
-    
+
     public void hideHero() {
         this.setImage(new GreenfootImage(1, 1));
     }
-    
+
     public void door() {
         for (Door d1 : getIntersectingObjects(Door.class)) {
             if (d1 != null) {
@@ -162,44 +162,44 @@ public class Hero extends Mover {
             }
         }
     }
-    
+
     public void adjustVolume() {
         keyCollect.setVolume(85);
     }
-    
+
     public boolean keySpace() {
         boolean keySpace = Greenfoot.isKeyDown("space");
         return keySpace;
     }
-    
+
     public boolean keyRight() {
         boolean keyRight = Greenfoot.isKeyDown("right");
         return keyRight;
     }
-    
+
     public boolean keyLeft() {
         boolean keyLeft = Greenfoot.isKeyDown("left");
         return keyLeft;
     }
-    
+
     public void animatieStanding() {
         if (keySpace() == false && keyLeft() == false && keyRight() == false && velocityY == 0) {
             setImage("alien" + charNum + "_stand" + direction + ".png");
         }
     }
-    
+
     public void animatieJump() {
         if (velocityY != 0) {
             setImage("alien" + charNum + "_jump" + direction + ".png");
         }
     }
-    
+
     public boolean opGrond() {
         Actor onder = getOneObjectAtOffset(0, getImage().getHeight() / 2, Tile.class);
         Tile tile = (Tile) onder;
         return tile != null && tile.isSolid == true;
     }
-    
+
     public void handleInput() {
         animatieStanding();
         animatieJump();
@@ -252,14 +252,14 @@ public class Hero extends Mover {
                     }
                     animationTimer++;
                     break;
-                
+
                 default:
                     break;
             }
-            
+
         } else if (keyRight()) {
             switch (charNum) {
-                
+
                 case 1:
                     velocityX = 4;
                     direction = 2;
@@ -282,15 +282,15 @@ public class Hero extends Mover {
                         animatie();
                     }
                     animationTimer++;
-                
+
                 default:
                     break;
             }
         }
     }
-    
+
     public void animatie() {
-        
+
         if (PicNum == 1) {
             setImage("alien" + charNum + "_walk" + direction + "1.png");
         } else if (PicNum == 2) {
@@ -300,7 +300,7 @@ public class Hero extends Mover {
         }
         PicNum++;
     }
-    
+
     public int ster() {
         if (isTouching(Ster.class)) {
             removeTouching(Ster.class);
@@ -309,67 +309,67 @@ public class Hero extends Mover {
         }
         return this.ster;
     }
-    
+
     public void key() {
         for (Key kn : getIntersectingObjects(Key.class)) {
             if (kn != null) {
                 switch (kn.keyColor) {
-                    
+
                     case "RED":
                         hasRedKey = true;
                         keyCollect.play();
                         removeTouching(Key.class);
                         break;
-                    
+
                     case "GREEN":
                         hasGreenKey = true;
                         keyCollect.play();
                         removeTouching(Key.class);
                         break;
-                    
+
                     case "BLUE":
                         hasBlueKey = true;
                         keyCollect.play();
                         removeTouching(Key.class);
                         break;
-                    
+
                     default:
                         System.out.println("No key color specified in constructor. Check Key.java");
                 }
             }
-            for (KeySpawnable ks : getIntersectingObjects(KeySpawnable.class)) {
-                if (ks != null) {
-                    switch (ks.keyColor) {
-                        
-                        case "RED":
-                            hasRedKey = true;
-                            keyCollect.play();
-                            removeTouching(KeySpawnable.class);
-                            break;
-                        
-                        case "GREEN":
-                            hasGreenKey = true;
-                            keyCollect.play();
-                            removeTouching(KeySpawnable.class);
-                            break;
-                        case "BLUE":
-                            hasBlueKey = true;
-                            keyCollect.play();
-                            removeTouching(KeySpawnable.class);
-                            break;
-                        
-                        default:
-                            System.out.println("No key color specified in constructor. Check KeySpawnable.java");
-                    }
+        }
+        for (KeySpawnable ks : getIntersectingObjects(KeySpawnable.class)) {
+            if (ks != null) {
+                switch (ks.keyColor) {
+
+                    case "RED":
+                        hasRedKey = true;
+                        keyCollect.play();
+                        removeTouching(KeySpawnable.class);
+                        break;
+
+                    case "GREEN":
+                        hasGreenKey = true;
+                        keyCollect.play();
+                        removeTouching(KeySpawnable.class);
+                        break;
+                    case "BLUE":
+                        hasBlueKey = true;
+                        keyCollect.play();
+                        removeTouching(KeySpawnable.class);
+                        break;
+
+                    default:
+                        System.out.println("No key color specified in constructor. Check KeySpawnable.java");
                 }
             }
         }
     }
-    
+
     public int getWidth() {
         return getImage().getWidth();
     }
-    
+
     public int getHeight() {
         return getImage().getHeight();
     }
