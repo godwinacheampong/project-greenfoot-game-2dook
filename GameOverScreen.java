@@ -19,9 +19,8 @@ public class GameOverScreen extends World
         super(1000, 800, 1, false);
         this.setBackground("GOS.png");
         this.worldName = worldName;
-        System.out.println(worldName);
+        addObject(new HOME(), 500, 500);
+        // System.out.println(worldName);
         // LevelMap lm = new LevelMap();
-        
-        
     }
 }

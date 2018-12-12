@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author R. Springer
  */
 public class Enemy extends Mover {
-
+    private String enemyName;
     private int walkRange;
     private int xMin;
     private int xMax;
@@ -16,18 +16,27 @@ public class Enemy extends Mover {
         super();
         setImage("pokerMad.png");
         getImage().mirrorHorizontally();
-        walkRange = 140;
+        walkRange = 180;
         firstAct = true;
         speed = 1;
     }
 
     public Enemy(String enemyName) {
         super();
-        setImage(enemyName + ".png");
-        getImage().mirrorHorizontally();
-        walkRange = 140;
-        firstAct = true;
-        speed = 1;
+        this.enemyName = enemyName;
+        if(enemyName.equals("Enemies/fireball")) {
+            setImage(enemyName + ".png");
+            // getImage().mirrorHorizontally();
+            walkRange = 180;
+            firstAct = true;
+            speed = 1;
+        } else {
+            setImage(enemyName + ".png");
+            getImage().mirrorHorizontally();
+            walkRange = 180;
+            firstAct = true;
+            speed = 1;
+        }
     }
 
     @Override

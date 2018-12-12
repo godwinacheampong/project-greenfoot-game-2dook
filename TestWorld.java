@@ -85,13 +85,14 @@ public class TestWorld extends World {
         addObject(camera, 0, 0);
         addObject(hero, heroSpawnX, heroSpawnY);
         addObject(new SterCount(), 907, 30);
-        addObject(new Enemy("Enemies/flyFly1"), 710, 1200);
+        addObject(new Enemy("Enemies/fireball"), 710, 1200);
         addObject(new Platform(), 710, 900);
         addObject(new Platform(), 640, 900);
         addObject(new Display(KEY_HUD_X + 20, KEY_HUD_Y, "HUD/hud_keyRed_disabled.png", "RedKeyHUD"), 0, 0);
         addObject(new Display(KEY_HUD_X + 80, KEY_HUD_Y, "HUD/hud_keyGreen_disabled.png", "GreenKeyHUD"), 0, 0);
         addObject(new Display(KEY_HUD_X + 140, KEY_HUD_Y, "HUD/hud_keyBlue_disabled.png", "BlueKeyHUD"), 0, 0);
         addObject(new Display(DIAMOND_HUD_X, DIAMOND_HUD_Y, "HUD/hud_x.png", "DiamondHUD"), 0, 0);
+        
         //   addObject(new Enemy(), 1170, 410);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
         // De collision engine kijkt alleen naar de tiles die de variabele solid op true hebben staan.

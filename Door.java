@@ -3,20 +3,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Door extends Tile {
 
-    int worldNum;
 
-    public Door(String image, int width, int height, int worldNum) {
+    public Door(String image, int width, int height) {
         super(image, width, height);
-        this.worldNum = worldNum;
     }
 
     public void act() {
-        for (Actor hero : getIntersectingObjects(Hero.class)) {
-            if (hero != null) {
-                switch (this.worldNum) {
-                    case 0:
+        for (Hero hero : getIntersectingObjects(Hero.class)) {
+            if (hero != null && hero.ster() == 3) {
+                switch (hero.worldName) {
+                    case "World1":
                         Greenfoot.setWorld(new World2());
                         break;
+                    case "World2":
+                         Greenfoot.setWorld(new World2());
+                         break;
+                    default:
+                          break;
 
                     // Greenfoot.setWorld(new World1());
                 }

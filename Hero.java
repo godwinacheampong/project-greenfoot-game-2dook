@@ -43,7 +43,7 @@ public class Hero extends Mover {
     public Hero(String worldName, int charNum) {
         super();
         adjustVolume();
-        gravity = 8;
+        gravity = 9.8;
         acc = 0.6;
         drag = 0.8;
         this.worldName = worldName;
@@ -79,9 +79,9 @@ public class Hero extends Mover {
 
     public void _float() {
         if (isTouching(Platform.class)) {
-            velocityY = -1;
+            velocityY = -2;
             if (keySpace() || keyUp()) {
-                velocityY = -14;
+                velocityY = -15;
             }
         }
     }
@@ -109,6 +109,13 @@ public class Hero extends Mover {
                 break;
             }
         }
+        for (LavaTop lt : getIntersectingObjects(LavaTop.class)) {
+            if (lt != null) {
+                // getWorld().addObject(new GameOver(), 500, 200);
+                getWorld().removeObject(this);
+                break;
+            }
+        }
         for (Rope rp : getIntersectingObjects(Rope.class)) {
             if (rp != null) {
                 if (keySpace() || keyUp()) {
@@ -116,6 +123,11 @@ public class Hero extends Mover {
                 } else if (Greenfoot.isKeyDown("down")) {
                     velocityY = 7;
                 }
+            }
+        }
+        for (Teleporter tp : getIntersectingObjects(Teleporter.class)) {
+            if (tp != null) {
+                setLocation(690, 1200);
             }
         }
         for (Enemy enemy : getIntersectingObjects(Enemy.class)) {
@@ -158,10 +170,18 @@ public class Hero extends Mover {
     public void door() {
         for (Door d1 : getIntersectingObjects(Door.class)) {
             if (d1 != null) {
-                // Greenfoot.setWorld(new TestWorld(heroData));
+                switch(this.worldName)
+                {
+                    case "World1":
+                 Greenfoot.setWorld(new World2());
+                 break;
+                 case "World2":
+                 Greenfoot.setWorld(new StartScherm());
+                 break;
             }
         }
     }
+}
 
     public void adjustVolume() {
         keyCollect.setVolume(85);
@@ -206,25 +226,25 @@ public class Hero extends Mover {
         if (keySpace() && opGrond() == true) {
             switch (charNum) {
                 case 1:
-                    velocityY = -14; // MOET NOG VERANDERD WORDEN
+                    velocityY = -15; // MOET NOG VERANDERD WORDEN
                     jmp.play();
                     break;
                 case 2:
-                    velocityY = -14; // MOET NOG VERANDERD WORDEN
+                    velocityY = -15; // MOET NOG VERANDERD WORDEN
                     jmp.play();
                     break;
                 case 3:
-                    velocityY = -14; // MOET NOG VERANDERD WORDEN
+                    velocityY = -10; // MOET NOG VERANDERD WORDEN
                     jmp.play();
                     break;
             }
         } else if (Greenfoot.isKeyDown("up") && opGrond() == true) {
             jmp.play();
-            velocityY = -14; // ER MOET HIER EEN SWITCH STATEMENT
+            velocityY = -15; // ER MOET HIER EEN SWITCH STATEMENT
 
         }
         if (Greenfoot.isKeyDown("h")) { // DIT IS VOOR DEBUGGEN, NIET IN DE FINAL COMMIT ZETTEN
-            velocityY = -14;
+            velocityY = -15;
         }
         if (keyLeft() && keyRight() == false) {
             switch (charNum) {

@@ -23,9 +23,15 @@ public class RandomBlockTile extends JumpableTiles {
         if (!keyUsed) {
             for (Hero hero : getIntersectingObjects(Hero.class)) {
                 if (hero != null) {
-                    getWorld().addObject(new KeySpawnable("RED"), 1292, 493);
-                    keyUsed = true;
-                    break;
+                    switch(hero.worldName) {
+                        case "World1":
+                        getWorld().addObject(new KeySpawnable("RED"), 1300,1455);
+                        keyUsed = true;
+                        break;
+                        case "World2":
+                        break;
+
+                    }
                 }
             }
         }
