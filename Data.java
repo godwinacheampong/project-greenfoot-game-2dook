@@ -9,5 +9,9 @@
  * @author toast
  */
 public class Data {
-    
+    int world1stars;
+    int world2stars;
+    boolean world2unlocked;
+    boolean world1Diamond;
+    boolean world2Diamond;
 }

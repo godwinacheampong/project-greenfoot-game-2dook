@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Hero extends Mover {
 
+    public Data heroData;
     // Stats
     private final double gravity;
     private final double acc;
@@ -66,16 +67,16 @@ public class Hero extends Mover {
         applyVelocity();
         checkForIntersectingObjects();
     }
-
+    
     public void customGedrag() {
-
+        
         if (charNum == 3) {
             GreenfootImage img = new GreenfootImage(this.getImage());
             img.scale(40, 50);
             setImage(img);
         }
     }
-
+    
     public void _float() {
         if (isTouching(Platform.class)) {
             velocityY = -1;
@@ -84,10 +85,10 @@ public class Hero extends Mover {
             }
         }
     }
-    public Data getPlayerData() {
-        
-        
-    }
+
+    /* public Data createData() {
+        return 
+    }*/
     public void checkForIntersectingObjects() {
         for (Diamond dt : getIntersectingObjects(Diamond.class)) {
             if (dt != null) {
@@ -122,7 +123,7 @@ public class Hero extends Mover {
                 if (alive) {
                     alive = false;
                     Greenfoot.setWorld(new GameOverScreen(this.worldName));
-                    
+
                     // getWorld().removeObject(this);
                 }
                 // setLocation(300, 200);
@@ -130,11 +131,11 @@ public class Hero extends Mover {
             }
         }
     }
-
+    
     public boolean keyUp() {
         return Greenfoot.isKeyDown("up");
     }
-
+    
     public void unlock() {
         List<Lock> locks = this.getNeighbours(100, true, Lock.class);
         if (!locks.isEmpty()) {
@@ -149,56 +150,56 @@ public class Hero extends Mover {
             }
         }
     }
-
+    
     public void hideHero() {
         this.setImage(new GreenfootImage(1, 1));
     }
-
+    
     public void door() {
         for (Door d1 : getIntersectingObjects(Door.class)) {
             if (d1 != null) {
-                System.out.println(d1);
+                // Greenfoot.setWorld(new TestWorld(heroData));
             }
         }
     }
-
+    
     public void adjustVolume() {
         keyCollect.setVolume(85);
     }
-
+    
     public boolean keySpace() {
         boolean keySpace = Greenfoot.isKeyDown("space");
         return keySpace;
     }
-
+    
     public boolean keyRight() {
         boolean keyRight = Greenfoot.isKeyDown("right");
         return keyRight;
     }
-
+    
     public boolean keyLeft() {
         boolean keyLeft = Greenfoot.isKeyDown("left");
         return keyLeft;
     }
-
+    
     public void animatieStanding() {
         if (keySpace() == false && keyLeft() == false && keyRight() == false && velocityY == 0) {
             setImage("alien" + charNum + "_stand" + direction + ".png");
         }
     }
-
+    
     public void animatieJump() {
         if (velocityY != 0) {
             setImage("alien" + charNum + "_jump" + direction + ".png");
         }
     }
-
+    
     public boolean opGrond() {
         Actor onder = getOneObjectAtOffset(0, getImage().getHeight() / 2, Tile.class);
         Tile tile = (Tile) onder;
         return tile != null && tile.isSolid == true;
     }
-
+    
     public void handleInput() {
         animatieStanding();
         animatieJump();
@@ -251,14 +252,14 @@ public class Hero extends Mover {
                     }
                     animationTimer++;
                     break;
-
+                
                 default:
                     break;
             }
-
+            
         } else if (keyRight()) {
             switch (charNum) {
-
+                
                 case 1:
                     velocityX = 4;
                     direction = 2;
@@ -281,15 +282,15 @@ public class Hero extends Mover {
                         animatie();
                     }
                     animationTimer++;
-
+                
                 default:
                     break;
             }
         }
     }
-
+    
     public void animatie() {
-
+        
         if (PicNum == 1) {
             setImage("alien" + charNum + "_walk" + direction + "1.png");
         } else if (PicNum == 2) {
@@ -299,7 +300,7 @@ public class Hero extends Mover {
         }
         PicNum++;
     }
-
+    
     public int ster() {
         if (isTouching(Ster.class)) {
             removeTouching(Ster.class);
@@ -308,30 +309,30 @@ public class Hero extends Mover {
         }
         return this.ster;
     }
-
+    
     public void key() {
         for (Key kn : getIntersectingObjects(Key.class)) {
             if (kn != null) {
                 switch (kn.keyColor) {
-
+                    
                     case "RED":
                         hasRedKey = true;
                         keyCollect.play();
                         removeTouching(Key.class);
                         break;
-
+                    
                     case "GREEN":
                         hasGreenKey = true;
                         keyCollect.play();
                         removeTouching(Key.class);
                         break;
-
+                    
                     case "BLUE":
                         hasBlueKey = true;
                         keyCollect.play();
                         removeTouching(Key.class);
                         break;
-
+                    
                     default:
                         System.out.println("No key color specified in constructor. Check Key.java");
                 }
@@ -339,13 +340,13 @@ public class Hero extends Mover {
             for (KeySpawnable ks : getIntersectingObjects(KeySpawnable.class)) {
                 if (ks != null) {
                     switch (ks.keyColor) {
-
+                        
                         case "RED":
                             hasRedKey = true;
                             keyCollect.play();
                             removeTouching(KeySpawnable.class);
                             break;
-
+                        
                         case "GREEN":
                             hasGreenKey = true;
                             keyCollect.play();
@@ -356,7 +357,7 @@ public class Hero extends Mover {
                             keyCollect.play();
                             removeTouching(KeySpawnable.class);
                             break;
-
+                        
                         default:
                             System.out.println("No key color specified in constructor. Check KeySpawnable.java");
                     }
@@ -364,11 +365,11 @@ public class Hero extends Mover {
             }
         }
     }
-
+    
     public int getWidth() {
         return getImage().getWidth();
     }
-
+    
     public int getHeight() {
         return getImage().getHeight();
     }
