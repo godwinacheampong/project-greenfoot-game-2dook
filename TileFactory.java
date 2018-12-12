@@ -486,12 +486,12 @@ public class TileFactory {
 
             case 94:
                 tile = new WaterTop("liquidWaterTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 95:
                 tile = new WaterTop("liquidWaterTop_mid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 96:
@@ -1395,13 +1395,13 @@ public class TileFactory {
                 break;
 
             case 276:
-                tile = new Tile("liquidWaterTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile = new WaterTop("liquidWaterTop.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+                tile.isSolid = false;
                 break;
 
             case 277:
                 tile = new Tile("liquidWaterTop_mid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
-                tile.isSolid = true;
+                tile.isSolid = false;
                 break;
 
             case 278:

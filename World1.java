@@ -38,7 +38,7 @@ public class World1 extends World {
 {-1,-1,-1,-1,-1,-1,-1,104,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,304,-1,-1,242},
 {-1,-1,-1,-1,-1,-1,-1,104,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,310,323,323,323,323,323,323},
 {323,323,177,-1,-1,-1,-1,104,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-{325,-1,-1,-1,-1,-1,-1,104,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+{325,347,-1,-1,-1,-1,-1,104,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
 {323,323,323,323,323,323,323,323,323,142,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
 {308,308,308,308,308,308,308,308,308,143,147,147,147,323,320,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
 {308,308,308,308,308,308,308,308,308,308,308,308,308,308,321,320,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
@@ -69,6 +69,7 @@ public class World1 extends World {
         // Declareren en initialiseren van een main karakter van het spel mijne heet Hero. Deze klasse 
         // moet de klasse Mover extenden voor de camera om te werken
         Hero hero = new Hero("World1", 1);
+        
         // Laat de camera een object volgen. Die moet een Mover instatie zijn of een extentie hiervan.
         camera.follow(hero);
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
@@ -76,7 +77,7 @@ public class World1 extends World {
         addObject(hero, heroSpawnX, heroSpawnY);
 
         addObject(new SterCount(), 907, 30);
-        addObject(new ResetButton(), 100, 50);
+       // addObject(new ResetButton(), 100, 50);
         addObject(new Display(KEY_HUD_X + 20, KEY_HUD_Y, "HUD/hud_keyRed_disabled.png", "RedKeyHUD"), 0, 0);
         addObject(new Display(KEY_HUD_X + 80, KEY_HUD_Y, "HUD/hud_keyGreen_disabled.png", "GreenKeyHUD"), 0, 0);
         addObject(new Display(KEY_HUD_X + 140, KEY_HUD_Y, "HUD/hud_keyBlue_disabled.png", "BlueKeyHUD"), 0, 0);
@@ -95,6 +96,7 @@ public class World1 extends World {
         ce = new CollisionEngine(te, camera);
         // Toevoegen van de mover instantie of een extentie hiervan
         ce.addCollidingMover(hero);
+        addObject(new ResetButton(), 100, 50);
     }
 
     @Override

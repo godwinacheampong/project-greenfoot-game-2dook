@@ -16,7 +16,7 @@ public class Door extends Tile {
                         Greenfoot.setWorld(new World2());
                         break;
                     case "World2":
-                         Greenfoot.setWorld(new World2());
+                         Greenfoot.setWorld(new Victory());
                          break;
                     default:
                           break;

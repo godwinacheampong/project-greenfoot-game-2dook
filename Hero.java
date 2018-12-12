@@ -76,7 +76,9 @@ public class Hero extends Mover {
             setImage(img);
         }
     }
-
+    public void get3() {
+        ster = 3;
+    }
     public void _float() {
         if (isTouching(Platform.class)) {
             velocityY = -2;
@@ -104,15 +106,15 @@ public class Hero extends Mover {
         }
         for (WaterTop wt : getIntersectingObjects(WaterTop.class)) {
             if (wt != null) {
-                // getWorld().addObject(new GameOver(), 500, 200);
-                getWorld().removeObject(this);
+                Greenfoot.setWorld(new GameOverScreen(this.worldName));
+                // getWorld().removeObject(this);
                 break;
             }
         }
         for (LavaTop lt : getIntersectingObjects(LavaTop.class)) {
             if (lt != null) {
-                // getWorld().addObject(new GameOver(), 500, 200);
-                getWorld().removeObject(this);
+                Greenfoot.setWorld(new GameOverScreen(this.worldName));
+              //  getWorld().removeObject(this);
                 break;
             }
         }
@@ -127,7 +129,7 @@ public class Hero extends Mover {
         }
         for (Teleporter tp : getIntersectingObjects(Teleporter.class)) {
             if (tp != null) {
-                setLocation(690, 1200);
+                setLocation(1900, 2200);
             }
         }
         for (Enemy enemy : getIntersectingObjects(Enemy.class)) {
@@ -172,7 +174,7 @@ public class Hero extends Mover {
             if (d1 != null) {
                 switch(this.worldName)
                 {
-                    case "World1":
+                 case "World1":
                  Greenfoot.setWorld(new World2());
                  break;
                  case "World2":
