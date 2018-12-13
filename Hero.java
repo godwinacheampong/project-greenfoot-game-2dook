@@ -132,6 +132,11 @@ public class Hero extends Mover {
                 setLocation(1900, 2200);
             }
         }
+        for (Teleporter2 tp2 : getIntersectingObjects(Teleporter2.class)) {
+            if (tp2 != null) {
+                setLocation(2800, 500);
+            }
+        }
         for (Enemy enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 if (alive) {
@@ -178,7 +183,7 @@ public class Hero extends Mover {
                  Greenfoot.setWorld(new World2());
                  break;
                  case "World2":
-                 Greenfoot.setWorld(new StartScherm());
+                 Greenfoot.setWorld(new LevelSelect());
                  break;
             }
         }
