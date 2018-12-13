@@ -33,6 +33,7 @@ public class Hero extends Mover {
     GreenfootSound coinCollect = new GreenfootSound("sounds/star.wav");
     GreenfootSound keyCollect = new GreenfootSound("sounds/key.wav");
     GreenfootSound jmp = new GreenfootSound("sounds/jump.wav");
+    GreenfootSound bgm = new GreenfootSound("sounds/bgm.wav");
 
     // Misc
     /*
@@ -48,6 +49,7 @@ public class Hero extends Mover {
         drag = 0.8;
         this.worldName = worldName;
         this.charNum = charNum;
+        bgm.play();
     }
 
     @Override
@@ -192,6 +194,7 @@ public class Hero extends Mover {
 
     public void adjustVolume() {
         keyCollect.setVolume(85);
+        bgm.setVolume(45);
     }
 
     public boolean keySpace() {
