@@ -94,6 +94,7 @@ int resetBtnX = 60;
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.
         // De collision engine kijkt alleen naar de tiles die de variabele solid op true hebben staan.
        addObject(new EZRESET(), resetBtnX, resetBtnY);
+       addObject(new Enemy("Enemies/flyFly1"), 1300, 1400);
         ce = new CollisionEngine(te, camera);
         // Toevoegen van de mover instantie of een extentie hiervan
         ce.addCollidingMover(hero);

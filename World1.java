@@ -88,7 +88,7 @@ public class World1 extends World {
 
         addObject(new Platform(), 1820, 400);
         addObject(new Platform(), 1750, 400);
-
+        addObject(new Enemy("Enemies/slimeWalk1"), 681, 585);
 
         //   addObject(new Enemy(), 1170, 410);
         // Initialiseren van de CollisionEngine zodat de speler niet door de tile heen kan lopen.

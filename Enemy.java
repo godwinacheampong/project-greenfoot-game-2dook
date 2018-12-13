@@ -33,7 +33,7 @@ public class Enemy extends Mover {
         } else {
             setImage(enemyName + ".png");
             getImage().mirrorHorizontally();
-            walkRange = 180;
+            walkRange = 137;
             firstAct = true;
             speed = 1;
         }
