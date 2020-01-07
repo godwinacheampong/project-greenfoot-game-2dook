@@ -2,10 +2,6 @@
 import greenfoot.*;
 import java.util.List;
 
-/**
- *
- * @author R. Springer
- */
 public class Hero extends Mover {
 
     public Data heroData;
@@ -90,9 +86,6 @@ public class Hero extends Mover {
         }
     }
 
-    /* public Data createData() {
-        return 
-    }*/
     public void checkForIntersectingObjects() {
         for (Diamond dt : getIntersectingObjects(Diamond.class)) {
             if (dt != null) {
@@ -248,15 +241,15 @@ public class Hero extends Mover {
                     jmp.play();
                     break;
             }
-        } else if (Greenfoot.isKeyDown("up") && opGrond() == true) {
+        } else if (Greenfoot.isKeyDown("up") && opGrond()) {
             jmp.play();
-            velocityY = -15; // ER MOET HIER EEN SWITCH STATEMENT
+            velocityY = -15;
 
         }
-        if (Greenfoot.isKeyDown("h")) { // DIT IS VOOR DEBUGGEN, NIET IN DE FINAL COMMIT ZETTEN
+        if (Greenfoot.isKeyDown("h")) { // Vliegen (Debug)
             velocityY = -15;
         }
-        if (keyLeft() && keyRight() == false) {
+        if (keyLeft() && !keyRight()) {
             switch (charNum) {
                 case 1:
                     velocityX = -4;
